@@ -1,0 +1,11 @@
+package.xml
+setup.cfg
+setup.py
+resource/spherebot_description
+spherebot_description/__init__.py
+spherebot_description.egg-info/PKG-INFO
+spherebot_description.egg-info/SOURCES.txt
+spherebot_description.egg-info/dependency_links.txt
+spherebot_description.egg-info/requires.txt
+spherebot_description.egg-info/top_level.txt
+spherebot_description.egg-info/zip-safe
