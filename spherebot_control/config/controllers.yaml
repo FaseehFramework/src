@@ -1,0 +1,57 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 30
+    use_sim_time: true
+
+    # The diff drive controller for the wheels
+    diff_drive_base_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    # The joint state broadcaster (publishes /joint_states)
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # Position controllers for the gates
+    left_gate_controller:
+      type: position_controllers/JointGroupPositionController
+    
+    right_gate_controller:
+      type: position_controllers/JointGroupPositionController
+
+diff_drive_base_controller:
+  ros__parameters:
+    left_wheel_names: ["left_wheel_joint"]
+    right_wheel_names: ["right_wheel_joint"]
+    wheel_separation: 0.47
+    wheel_radius: 0.06
+
+    # Odometry settings
+    publish_rate: 50.0
+    odom_frame_id: odom
+    base_frame_id: base_footprint
+    # We want to publish tf so the robot moves in Rviz
+    enable_odom_tf: true
+    
+    # Use unstamped Twist messages (geometry_msgs/Twist) instead of TwistStamped
+    use_stamped_vel: false
+    
+    # Velocity limits
+    # Velocity limits
+    linear:
+      x:
+        has_velocity_limits: true
+        max_velocity: 1.0
+    angular:
+      z:
+        has_velocity_limits: true
+        max_velocity: 2.0
+
+left_gate_controller:
+  ros__parameters:
+    joints:
+      - left_gate_joint
+
+right_gate_controller:
+  ros__parameters:
+    joints:
+      - right_gate_joint
