@@ -1,0 +1,30 @@
+slam_toolbox:
+  ros__parameters:
+
+    # --- TF Frames (Must match your URDF) ---
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_footprint
+    scan_topic: /scan
+
+    # --- Mode ---
+    mode: mapping # mapping (new map) vs localization (existing map)
+
+    # --- Performance Settings ---
+    # Update map every time we move this much
+    map_update_interval: 1.0 # Seconds
+    minimum_time_interval: 0.5
+    transform_publish_period: 0.02 # 50Hz
+    
+    # --- Resolution ---
+    resolution: 0.05 # 5cm per pixel
+    max_laser_range: 10.0 # Match your Lidar max range
+
+    # --- Internal Math (Do not touch unless expert) ---
+    use_scan_matching: true
+    use_barycenter: true
+    minimum_travel_distance: 0.1
+    minimum_travel_heading: 0.1
+    scan_buffer_size: 10
+    stack_size_to_use: 40000000 
+    enable_interactive_mode: true
