@@ -28,6 +28,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'safety_stop = spherebot_control.safety_stop:main',
         ],
     },
 )

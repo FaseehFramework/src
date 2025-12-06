@@ -6,6 +6,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
+from launch_ros.actions import Node
 
 def generate_launch_description():
     
@@ -13,6 +14,7 @@ def generate_launch_description():
     description_pkg = 'spherebot_description'
     control_pkg = 'spherebot_control'
     gazebo_pkg = 'spherebot_gazebo'
+    ekf_config_path = os.path.join(get_package_share_directory('spherebot_control'), 'config', 'ekf.yaml')
     
     # Path to the Xacro file
     xacro_file = os.path.join(get_package_share_directory(description_pkg), 'urdf', 'spherebot.urdf.xacro')
@@ -96,6 +98,24 @@ def generate_launch_description():
         output='screen'
     )
 
+    robot_localization_node = Node(
+       package='robot_localization',
+       executable='ekf_node',
+       name='ekf_filter_node',
+       output='screen',
+       parameters=[ekf_config_path, {'use_sim_time': True}]
+    )
+
+    # Safety Stop Node
+    # Intercepts /cmd_vel (from teleop) and publishes to /diff_drive_base_controller/cmd_vel_unstamped
+    safety_stop_node = Node(
+        package='spherebot_control',
+        executable='safety_stop',
+        name='safety_stop',
+        output='screen',
+        parameters=[{'use_sim_time': True}]
+    )
+
     return LaunchDescription([
         node_robot_state_publisher,
         gazebo,
@@ -104,5 +124,7 @@ def generate_launch_description():
         diff_drive_spawner,
         left_gate_spawner,
         right_gate_spawner,
-        bridge
+        bridge,
+        robot_localization_node,
+        safety_stop_node
     ])

@@ -1,0 +1,2 @@
+[console_scripts]
+safety_stop = spherebot_control.safety_stop:main

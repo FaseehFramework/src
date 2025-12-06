@@ -12,9 +12,12 @@ slam_toolbox:
 
     # --- Performance Settings ---
     # Update map every time we move this much
-    map_update_interval: 1.0 # Seconds
-    minimum_time_interval: 0.5
+    # --- Performance Settings ---
+    # Update map every time we move this much
+    map_update_interval: 0.5 # Reduced from 1.0 for faster visualization
+    minimum_time_interval: 0.1 # Reduced from 0.5 to allow 10Hz updates
     transform_publish_period: 0.02 # 50Hz
+    throttle_scans: 1 # Process every scan
     
     # --- Resolution ---
     resolution: 0.05 # 5cm per pixel
@@ -23,8 +26,8 @@ slam_toolbox:
     # --- Internal Math (Do not touch unless expert) ---
     use_scan_matching: true
     use_barycenter: true
-    minimum_travel_distance: 0.1
-    minimum_travel_heading: 0.1
+    minimum_travel_distance: 0.0 # Reduced from 0.1 to catch small movements/slip
+    minimum_travel_heading: 0.05 # Reduced from 0.1 (~3 deg)
     scan_buffer_size: 10
     stack_size_to_use: 40000000 
     enable_interactive_mode: true
