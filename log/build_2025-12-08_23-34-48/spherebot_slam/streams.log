@@ -1,0 +1,19 @@
+[0.779s] Invoking command in '/home/faseeh/ros2/ros2_ws/build/spherebot_slam': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/build/spherebot_slam/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/faseeh/ros2/ros2_ws/build/spherebot_slam/build --no-deps symlink_data --force
+[1.072s] running develop
+[1.263s] running egg_info
+[1.287s] writing spherebot_slam.egg-info/PKG-INFO
+[1.288s] writing dependency_links to spherebot_slam.egg-info/dependency_links.txt
+[1.288s] writing requirements to spherebot_slam.egg-info/requires.txt
+[1.288s] writing top-level names to spherebot_slam.egg-info/top_level.txt
+[1.325s] reading manifest file 'spherebot_slam.egg-info/SOURCES.txt'
+[1.325s] writing manifest file 'spherebot_slam.egg-info/SOURCES.txt'
+[1.342s] running build_ext
+[1.342s] Creating /home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages/spherebot-slam.egg-link (link to .)
+[1.343s] 
+[1.343s] Installed /home/faseeh/ros2/ros2_ws/build/spherebot_slam
+[1.343s] running symlink_data
+[1.343s] symbolically linking /home/faseeh/ros2/ros2_ws/build/spherebot_slam/resource/spherebot_slam -> /home/faseeh/ros2/ros2_ws/install/spherebot_slam/share/ament_index/resource_index/packages
+[1.343s] symbolically linking /home/faseeh/ros2/ros2_ws/build/spherebot_slam/package.xml -> /home/faseeh/ros2/ros2_ws/install/spherebot_slam/share/spherebot_slam
+[1.343s] symbolically linking /home/faseeh/ros2/ros2_ws/build/spherebot_slam/launch/slam.launch.py -> /home/faseeh/ros2/ros2_ws/install/spherebot_slam/share/spherebot_slam/launch
+[1.343s] symbolically linking /home/faseeh/ros2/ros2_ws/build/spherebot_slam/config/mapper_params_online_async.yaml -> /home/faseeh/ros2/ros2_ws/install/spherebot_slam/share/spherebot_slam/config
+[1.372s] Invoked command in '/home/faseeh/ros2/ros2_ws/build/spherebot_slam' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/build/spherebot_slam/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/faseeh/ros2/ros2_ws/build/spherebot_slam/build --no-deps symlink_data --force

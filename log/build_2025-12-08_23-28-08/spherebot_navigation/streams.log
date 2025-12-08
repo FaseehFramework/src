@@ -1,0 +1,52 @@
+[0.010s] Invoking command in '/home/faseeh/ros2/ros2_ws/build/spherebot_navigation': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo:/home/faseeh/ros2/ros2_ws/install/spherebot_control:/home/faseeh/ros2/ros2_ws/install/spherebot_slam:/home/faseeh/ros2/ros2_ws/install/spherebot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/faseeh/ros2/ros2_ws/src/spherebot_navigation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/faseeh/ros2/ros2_ws/install/spherebot_navigation
+[1.282s] -- The C compiler identification is GNU 13.3.0
+[2.358s] -- The CXX compiler identification is GNU 13.3.0
+[2.422s] -- Detecting C compiler ABI info
+[2.675s] -- Detecting C compiler ABI info - done
+[2.682s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.683s] -- Detecting C compile features
+[2.683s] -- Detecting C compile features - done
+[2.691s] -- Detecting CXX compiler ABI info
+[2.774s] -- Detecting CXX compiler ABI info - done
+[2.782s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.782s] -- Detecting CXX compile features
+[2.783s] -- Detecting CXX compile features - done
+[2.991s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.228s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[3.541s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[3.849s] -- Found ament_lint_auto: 0.17.3 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[4.087s] -- Added test 'copyright' to check source files copyright and LICENSE
+[4.094s] -- Added test 'flake8' to check Python code syntax and style conventions
+[4.094s] -- Configured 'flake8' exclude dirs and/or files: 
+[4.096s] -- Added test 'lint_cmake' to check CMake code style
+[4.097s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[4.105s] -- Added test 'xmllint' to check XML markup files
+[4.110s] -- Configuring done (4.1s)
+[4.115s] -- Generating done (0.0s)
+[4.117s] -- Build files have been written to: /home/faseeh/ros2/ros2_ws/build/spherebot_navigation
+[4.126s] Invoked command in '/home/faseeh/ros2/ros2_ws/build/spherebot_navigation' returned '0': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo:/home/faseeh/ros2/ros2_ws/install/spherebot_control:/home/faseeh/ros2/ros2_ws/install/spherebot_slam:/home/faseeh/ros2/ros2_ws/install/spherebot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/faseeh/ros2/ros2_ws/src/spherebot_navigation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/faseeh/ros2/ros2_ws/install/spherebot_navigation
+[4.128s] Invoking command in '/home/faseeh/ros2/ros2_ws/build/spherebot_navigation': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo:/home/faseeh/ros2/ros2_ws/install/spherebot_control:/home/faseeh/ros2/ros2_ws/install/spherebot_slam:/home/faseeh/ros2/ros2_ws/install/spherebot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/faseeh/ros2/ros2_ws/build/spherebot_navigation -- -j8 -l8
+[4.173s] Invoked command in '/home/faseeh/ros2/ros2_ws/build/spherebot_navigation' returned '0': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo:/home/faseeh/ros2/ros2_ws/install/spherebot_control:/home/faseeh/ros2/ros2_ws/install/spherebot_slam:/home/faseeh/ros2/ros2_ws/install/spherebot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/faseeh/ros2/ros2_ws/build/spherebot_navigation -- -j8 -l8
+[4.182s] Invoking command in '/home/faseeh/ros2/ros2_ws/build/spherebot_navigation': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo:/home/faseeh/ros2/ros2_ws/install/spherebot_control:/home/faseeh/ros2/ros2_ws/install/spherebot_slam:/home/faseeh/ros2/ros2_ws/install/spherebot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/faseeh/ros2/ros2_ws/build/spherebot_navigation
+[4.188s] -- Install configuration: ""
+[4.189s] -- Execute custom install script
+[4.189s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/launch/spherebot_nav2.launch.py
+[4.197s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/config/nav2_params.yaml
+[4.206s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/behavior_trees/navigate_w_recovery.xml
+[4.214s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/rviz/nav2_view.rviz
+[4.223s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/ament_index/resource_index/package_run_dependencies/spherebot_navigation
+[4.236s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/ament_index/resource_index/parent_prefix_path/spherebot_navigation
+[4.243s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/environment/ament_prefix_path.sh
+[4.252s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/environment/ament_prefix_path.dsv
+[4.260s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/environment/path.sh
+[4.268s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/environment/path.dsv
+[4.275s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/local_setup.bash
+[4.283s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/local_setup.sh
+[4.291s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/local_setup.zsh
+[4.300s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/local_setup.dsv
+[4.310s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/package.dsv
+[4.318s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/ament_index/resource_index/packages/spherebot_navigation
+[4.326s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/cmake/spherebot_navigationConfig.cmake
+[4.335s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/cmake/spherebot_navigationConfig-version.cmake
+[4.344s] -- Symlinking: /home/faseeh/ros2/ros2_ws/install/spherebot_navigation/share/spherebot_navigation/package.xml
+[4.354s] Invoked command in '/home/faseeh/ros2/ros2_ws/build/spherebot_navigation' returned '0': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo:/home/faseeh/ros2/ros2_ws/install/spherebot_control:/home/faseeh/ros2/ros2_ws/install/spherebot_slam:/home/faseeh/ros2/ros2_ws/install/spherebot_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_slam/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/faseeh/ros2/ros2_ws/build/spherebot_navigation
