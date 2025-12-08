@@ -1,0 +1,44 @@
+running egg_info
+creating ../build/spherebot_control/spherebot_control.egg-info
+writing ../build/spherebot_control/spherebot_control.egg-info/PKG-INFO
+writing dependency_links to ../build/spherebot_control/spherebot_control.egg-info/dependency_links.txt
+writing entry points to ../build/spherebot_control/spherebot_control.egg-info/entry_points.txt
+writing requirements to ../build/spherebot_control/spherebot_control.egg-info/requires.txt
+writing top-level names to ../build/spherebot_control/spherebot_control.egg-info/top_level.txt
+writing manifest file '../build/spherebot_control/spherebot_control.egg-info/SOURCES.txt'
+reading manifest file '../build/spherebot_control/spherebot_control.egg-info/SOURCES.txt'
+writing manifest file '../build/spherebot_control/spherebot_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+copying spherebot_control/__init__.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+copying spherebot_control/safety_stop.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+copying spherebot_control/odom_fixer.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+running install
+running install_lib
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control/__init__.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control/safety_stop.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control/odom_fixer.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control/safety_stop.py to safety_stop.cpython-312.pyc
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control/odom_fixer.py to odom_fixer.cpython-312.pyc
+running install_data
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index/resource_index
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index/resource_index/packages
+copying resource/spherebot_control -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/launch
+copying launch/sim.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/launch
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/config
+copying config/controllers.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/config
+copying config/ekf.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/config
+running install_egg_info
+Copying ../build/spherebot_control/spherebot_control.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control-0.0.0-py3.12.egg-info
+running install_scripts
+Installing odom_fixer script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/spherebot_control
+Installing safety_stop script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/spherebot_control
+writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_control/install.log'

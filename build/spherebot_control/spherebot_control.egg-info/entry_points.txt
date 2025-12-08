@@ -1,2 +1,3 @@
 [console_scripts]
+odom_fixer = spherebot_control.odom_fixer:main
 safety_stop = spherebot_control.safety_stop:main

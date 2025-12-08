@@ -29,6 +29,7 @@ setup(
     entry_points={
         'console_scripts': [
             'safety_stop = spherebot_control.safety_stop:main',
+            'odom_fixer = spherebot_control.odom_fixer:main',
         ],
     },
 )

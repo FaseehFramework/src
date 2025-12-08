@@ -13,6 +13,7 @@ config/ekf.yaml
 launch/sim.launch.py
 resource/spherebot_control
 spherebot_control/__init__.py
+spherebot_control/odom_fixer.py
 spherebot_control/safety_stop.py
 test/test_copyright.py
 test/test_flake8.py

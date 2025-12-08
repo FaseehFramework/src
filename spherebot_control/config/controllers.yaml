@@ -30,10 +30,10 @@ diff_drive_base_controller:
     odom_frame_id: odom
     base_frame_id: base_footprint
     # We want to publish tf so the robot moves in Rviz
-    enable_odom_tf: true
+    enable_odom_tf: false
     
-    # Use unstamped Twist messages (geometry_msgs/Twist) instead of TwistStamped
-    use_stamped_vel: false
+    # Use stamped Twist messages (geometry_msgs/TwistStamped)
+    use_stamped_vel: true
 
     # Covariance for the velocity (twist)
     # [vx, vy, vz, vroll, vpitch, vyaw]

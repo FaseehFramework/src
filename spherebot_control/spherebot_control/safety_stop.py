@@ -2,7 +2,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
-from geometry_msgs.msg import Twist
+from geometry_msgs.msg import Twist, TwistStamped
 
 class SafetyStop(Node):
     def __init__(self):
@@ -12,7 +12,8 @@ class SafetyStop(Node):
         self.stop_distance = 0.5  # meters
         self.scan_topic = '/scan'
         self.cmd_vel_in_topic = '/cmd_vel'
-        self.cmd_vel_out_topic = '/diff_drive_base_controller/cmd_vel_unstamped'
+        # Updated to standard topic name for diff_drive_controller
+        self.cmd_vel_out_topic = '/diff_drive_base_controller/cmd_vel'
 
         # Subscribers
         self.scan_sub = self.create_subscription(
@@ -21,20 +22,29 @@ class SafetyStop(Node):
             self.scan_callback,
             10)
         
-        self.cmd_vel_sub = self.create_subscription(
+        # 1. Subscribe to TwistStamped (from Nav2, remapped to /cmd_vel_nav)
+        self.nav_vel_sub = self.create_subscription(
+            TwistStamped,
+            '/cmd_vel_nav',
+            self.nav_vel_callback,
+            10)
+
+        # 2. Subscribe to Twist (from Teleop, on /cmd_vel)
+        self.teleop_vel_sub = self.create_subscription(
             Twist,
-            self.cmd_vel_in_topic,
-            self.cmd_vel_callback,
+            '/cmd_vel',
+            self.teleop_vel_callback,
             10)
 
         # Publisher
+        # Publish TwistStamped (to controller)
         self.cmd_vel_pub = self.create_publisher(
-            Twist,
+            TwistStamped,
             self.cmd_vel_out_topic,
             10)
 
         self.obstacle_detected = False
-        self.get_logger().info('Safety Stop Node Started')
+        self.get_logger().info('Safety Stop Node Started (Dual Input Mode)')
 
     def scan_callback(self, msg):
         # Check for obstacles in front (assuming 0 degrees is front)
@@ -77,13 +87,20 @@ class SafetyStop(Node):
         else:
             self.obstacle_detected = False
 
-    def cmd_vel_callback(self, msg):
-        # If obstacle detected and trying to move forward (linear.x > 0), stop.
-        if self.obstacle_detected and msg.linear.x > 0:
-            msg.linear.x = 0.0
-            # Allow rotation? Yes, usually safe to turn in place.
-        
+    def nav_vel_callback(self, msg):
+        # Callback for Nav2 (TwistStamped)
+        # Pass through directly
         self.cmd_vel_pub.publish(msg)
+
+    def teleop_vel_callback(self, msg):
+        # Callback for Teleop (Twist)
+        # Convert to TwistStamped
+        stamped_msg = TwistStamped()
+        stamped_msg.header.stamp = self.get_clock().now().to_msg()
+        stamped_msg.header.frame_id = 'base_link' # or whatever frame is appropriate
+        stamped_msg.twist = msg
+        
+        self.cmd_vel_pub.publish(stamped_msg)
 
 def main(args=None):
     rclpy.init(args=args)

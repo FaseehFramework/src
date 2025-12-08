@@ -1,0 +1,37 @@
+[6.144s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/spherebot_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_teleop build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/install.log --single-version-externally-managed install_data
+[6.341s] running egg_info
+[6.342s] creating ../build/spherebot_teleop/spherebot_teleop.egg-info
+[6.356s] writing ../build/spherebot_teleop/spherebot_teleop.egg-info/PKG-INFO
+[6.356s] writing dependency_links to ../build/spherebot_teleop/spherebot_teleop.egg-info/dependency_links.txt
+[6.357s] writing entry points to ../build/spherebot_teleop/spherebot_teleop.egg-info/entry_points.txt
+[6.357s] writing requirements to ../build/spherebot_teleop/spherebot_teleop.egg-info/requires.txt
+[6.357s] writing top-level names to ../build/spherebot_teleop/spherebot_teleop.egg-info/top_level.txt
+[6.357s] writing manifest file '../build/spherebot_teleop/spherebot_teleop.egg-info/SOURCES.txt'
+[6.387s] reading manifest file '../build/spherebot_teleop/spherebot_teleop.egg-info/SOURCES.txt'
+[6.388s] writing manifest file '../build/spherebot_teleop/spherebot_teleop.egg-info/SOURCES.txt'
+[6.388s] running build
+[6.388s] running build_py
+[6.388s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build
+[6.388s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib
+[6.388s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop
+[6.388s] copying spherebot_teleop/__init__.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop
+[6.388s] copying spherebot_teleop/keyboard_teleop.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop
+[6.425s] running install
+[6.431s] running install_lib
+[6.445s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop
+[6.446s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop/__init__.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop
+[6.446s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop/keyboard_teleop.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop
+[6.446s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop/__init__.py to __init__.cpython-312.pyc
+[6.446s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop/keyboard_teleop.py to keyboard_teleop.cpython-312.pyc
+[6.447s] running install_data
+[6.447s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index
+[6.447s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index/resource_index
+[6.447s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index/resource_index/packages
+[6.447s] copying resource/spherebot_teleop -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index/resource_index/packages
+[6.448s] copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/spherebot_teleop
+[6.448s] running install_egg_info
+[6.464s] Copying ../build/spherebot_teleop/spherebot_teleop.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop-0.0.0-py3.12.egg-info
+[6.465s] running install_scripts
+[6.568s] Installing keyboard script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/spherebot_teleop
+[6.568s] writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/install.log'
+[6.668s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/spherebot_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_teleop build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/install.log --single-version-externally-managed install_data

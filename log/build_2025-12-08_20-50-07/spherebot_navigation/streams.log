@@ -1,0 +1,32 @@
+[0.654s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build --no-deps symlink_data
+[0.916s] running develop
+[1.084s] running egg_info
+[1.084s] creating spherebot_navigation.egg-info
+[1.100s] writing spherebot_navigation.egg-info/PKG-INFO
+[1.100s] writing dependency_links to spherebot_navigation.egg-info/dependency_links.txt
+[1.100s] writing requirements to spherebot_navigation.egg-info/requires.txt
+[1.100s] writing top-level names to spherebot_navigation.egg-info/top_level.txt
+[1.100s] writing manifest file 'spherebot_navigation.egg-info/SOURCES.txt'
+[1.132s] reading manifest file 'spherebot_navigation.egg-info/SOURCES.txt'
+[1.132s] writing manifest file 'spherebot_navigation.egg-info/SOURCES.txt'
+[1.148s] running build_ext
+[1.148s] Creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot-navigation.egg-link (link to .)
+[1.149s] 
+[1.149s] Installed /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation
+[1.149s] running symlink_data
+[1.149s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/ament_index
+[1.149s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/ament_index/resource_index
+[1.149s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/ament_index/resource_index/packages
+[1.149s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/resource/spherebot_navigation -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/ament_index/resource_index/packages
+[1.149s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation
+[1.149s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch
+[1.150s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/launch/navigation.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch
+[1.150s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/launch/bringup.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch
+[1.150s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/config
+[1.150s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/config/nav2_params.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/config
+[1.150s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps
+[1.150s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/maps/assessment_map.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps
+[1.150s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/maps/assessment_map.pgm -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps
+[1.150s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/rviz
+[1.150s] symbolically linking /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/rviz/nav2.rviz -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/rviz
+[1.173s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build --no-deps symlink_data

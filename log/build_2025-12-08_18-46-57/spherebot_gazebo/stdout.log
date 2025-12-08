@@ -1,0 +1,36 @@
+running egg_info
+creating ../build/spherebot_gazebo/spherebot_gazebo.egg-info
+writing ../build/spherebot_gazebo/spherebot_gazebo.egg-info/PKG-INFO
+writing dependency_links to ../build/spherebot_gazebo/spherebot_gazebo.egg-info/dependency_links.txt
+writing requirements to ../build/spherebot_gazebo/spherebot_gazebo.egg-info/requires.txt
+writing top-level names to ../build/spherebot_gazebo/spherebot_gazebo.egg-info/top_level.txt
+writing manifest file '../build/spherebot_gazebo/spherebot_gazebo.egg-info/SOURCES.txt'
+reading manifest file '../build/spherebot_gazebo/spherebot_gazebo.egg-info/SOURCES.txt'
+writing manifest file '../build/spherebot_gazebo/spherebot_gazebo.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/build
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/build/lib
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/build/lib/spherebot_gazebo
+copying spherebot_gazebo/__init__.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/build/lib/spherebot_gazebo
+running install
+running install_lib
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages/spherebot_gazebo
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/build/lib/spherebot_gazebo/__init__.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages/spherebot_gazebo
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages/spherebot_gazebo/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/ament_index
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/ament_index/resource_index
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/ament_index/resource_index/packages
+copying resource/spherebot_gazebo -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/ament_index/resource_index/packages
+copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo/launch
+copying launch/spherebot_sim.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo/launch
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo/config
+copying config/bridge.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo/config
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo/worlds
+copying worlds/assessment_world.sdf -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo/worlds
+running install_egg_info
+Copying ../build/spherebot_gazebo/spherebot_gazebo.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages/spherebot_gazebo-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/install.log'

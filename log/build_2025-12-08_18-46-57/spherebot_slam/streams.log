@@ -1,0 +1,36 @@
+[6.150s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/spherebot_slam': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_slam build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/install.log --single-version-externally-managed install_data
+[6.348s] running egg_info
+[6.348s] creating ../build/spherebot_slam/spherebot_slam.egg-info
+[6.363s] writing ../build/spherebot_slam/spherebot_slam.egg-info/PKG-INFO
+[6.364s] writing dependency_links to ../build/spherebot_slam/spherebot_slam.egg-info/dependency_links.txt
+[6.364s] writing requirements to ../build/spherebot_slam/spherebot_slam.egg-info/requires.txt
+[6.364s] writing top-level names to ../build/spherebot_slam/spherebot_slam.egg-info/top_level.txt
+[6.364s] writing manifest file '../build/spherebot_slam/spherebot_slam.egg-info/SOURCES.txt'
+[6.394s] reading manifest file '../build/spherebot_slam/spherebot_slam.egg-info/SOURCES.txt'
+[6.394s] writing manifest file '../build/spherebot_slam/spherebot_slam.egg-info/SOURCES.txt'
+[6.394s] running build
+[6.394s] running build_py
+[6.394s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/build
+[6.395s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/build/lib
+[6.395s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/build/lib/spherebot_slam
+[6.395s] copying spherebot_slam/__init__.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/build/lib/spherebot_slam
+[6.395s] running install
+[6.401s] running install_lib
+[6.415s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/lib/python3.12/site-packages/spherebot_slam
+[6.415s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/build/lib/spherebot_slam/__init__.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/lib/python3.12/site-packages/spherebot_slam
+[6.416s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/lib/python3.12/site-packages/spherebot_slam/__init__.py to __init__.cpython-312.pyc
+[6.416s] running install_data
+[6.416s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/ament_index
+[6.416s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/ament_index/resource_index
+[6.416s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/ament_index/resource_index/packages
+[6.416s] copying resource/spherebot_slam -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/ament_index/resource_index/packages
+[6.416s] copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/spherebot_slam
+[6.416s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/spherebot_slam/launch
+[6.416s] copying launch/slam.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/spherebot_slam/launch
+[6.416s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/spherebot_slam/config
+[6.417s] copying config/mapper_params_online_async.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/share/spherebot_slam/config
+[6.417s] running install_egg_info
+[6.432s] Copying ../build/spherebot_slam/spherebot_slam.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/lib/python3.12/site-packages/spherebot_slam-0.0.0-py3.12.egg-info
+[6.433s] running install_scripts
+[6.533s] writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/install.log'
+[6.555s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/spherebot_slam' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_slam/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_slam build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_slam/install.log --single-version-externally-managed install_data

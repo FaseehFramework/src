@@ -1,0 +1,35 @@
+running egg_info
+creating ../build/spherebot_teleop/spherebot_teleop.egg-info
+writing ../build/spherebot_teleop/spherebot_teleop.egg-info/PKG-INFO
+writing dependency_links to ../build/spherebot_teleop/spherebot_teleop.egg-info/dependency_links.txt
+writing entry points to ../build/spherebot_teleop/spherebot_teleop.egg-info/entry_points.txt
+writing requirements to ../build/spherebot_teleop/spherebot_teleop.egg-info/requires.txt
+writing top-level names to ../build/spherebot_teleop/spherebot_teleop.egg-info/top_level.txt
+writing manifest file '../build/spherebot_teleop/spherebot_teleop.egg-info/SOURCES.txt'
+reading manifest file '../build/spherebot_teleop/spherebot_teleop.egg-info/SOURCES.txt'
+writing manifest file '../build/spherebot_teleop/spherebot_teleop.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib
+creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop
+copying spherebot_teleop/__init__.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop
+copying spherebot_teleop/keyboard_teleop.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop
+running install
+running install_lib
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop/__init__.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/build/lib/spherebot_teleop/keyboard_teleop.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop/keyboard_teleop.py to keyboard_teleop.cpython-312.pyc
+running install_data
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index/resource_index
+creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index/resource_index/packages
+copying resource/spherebot_teleop -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/ament_index/resource_index/packages
+copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/share/spherebot_teleop
+running install_egg_info
+Copying ../build/spherebot_teleop/spherebot_teleop.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/python3.12/site-packages/spherebot_teleop-0.0.0-py3.12.egg-info
+running install_scripts
+Installing keyboard script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_teleop/lib/spherebot_teleop
+writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_teleop/install.log'

@@ -79,9 +79,9 @@ class SafetyStop(Node):
 
     def cmd_vel_callback(self, msg):
         # If obstacle detected and trying to move forward (linear.x > 0), stop.
-        if self.obstacle_detected and msg.linear.x > 0:
-            msg.linear.x = 0.0
-            # Allow rotation? Yes, usually safe to turn in place.
+        # DEBUG: Always pass through
+        # if self.obstacle_detected and msg.linear.x > 0:
+        #     msg.linear.x = 0.0
         
         self.cmd_vel_pub.publish(msg)
 

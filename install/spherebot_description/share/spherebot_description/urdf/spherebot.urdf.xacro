@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="u_shaped_collector_v2">
+
+  <!-- ======================================================================= -->
+  <!--                           PROPERTIES (CONSTANTS)                        -->
+  <!-- ======================================================================= -->
+  
+  <!-- Base Dimensions -->
+  <xacro:property name="base_len" value="0.1"/>
+  <xacro:property name="base_width" value="0.42"/>
+  <xacro:property name="base_height" value="0.2"/>
+  <xacro:property name="base_mass" value="10.0"/>
+
+  <!-- U-Arm Dimensions -->
+  <xacro:property name="arm_len" value="0.35"/>
+  <xacro:property name="arm_thick" value="0.05"/>
+  <xacro:property name="arm_height" value="0.2"/>
+  <xacro:property name="arm_y_offset" value="0.185"/> 
+  <xacro:property name="arm_x_offset" value="0.225"/>
+
+  <!-- Wheel Dimensions -->
+  <xacro:property name="wheel_radius" value="0.06"/>
+  <xacro:property name="wheel_width" value="0.04"/>
+  <xacro:property name="wheel_mass" value="0.5"/>
+  <xacro:property name="wheel_x_offset" value="0.3"/>
+  <xacro:property name="wheel_y_offset" value="0.235"/>
+  <xacro:property name="wheel_z_offset" value="-0.08"/>
+
+  <!-- Caster Dimensions -->
+  <xacro:property name="caster_radius" value="0.04"/>
+  <xacro:property name="caster_mass" value="0.2"/>
+  <xacro:property name="caster_x_offset" value="-0.01"/>
+  <xacro:property name="caster_z_offset" value="-0.10"/>
+
+  <!-- Gate Dimensions -->
+  <xacro:property name="gate_thick" value="0.02"/>
+  <xacro:property name="gate_len" value="0.18"/>
+  <xacro:property name="gate_height" value="0.18"/>
+  <xacro:property name="gate_mass" value="0.1"/>
+  <xacro:property name="gate_x_mount" value="0.4"/>
+  <xacro:property name="gate_y_mount" value="0.25"/> 
+  <xacro:property name="gate_travel" value="0.25"/>
+
+  <!-- Colors -->
+  <material name="blue"><color rgba="0 0 0.8 1"/></material>
+  <material name="black"><color rgba="0 0 0 1"/></material>
+  <material name="red"><color rgba="0.8 0 0 1"/></material>
+  <material name="silver"><color rgba="0.7 0.7 0.7 1"/></material>
+
+  <!-- [NEW] ARGUMENT FOR CONTROLLER CONFIG -->
+  <!-- This allows the launch file to pass in the path to the yaml file -->
+  <xacro:arg name="config_file" default="$(find spherebot_control)/config/controllers.yaml" />
+
+
+  <!-- ======================================================================= -->
+  <!--                           INERTIA MACROS                                -->
+  <!-- ======================================================================= -->
+
+  <xacro:macro name="box_inertia" params="m l w h">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia ixx="${(m/12) * (h*h + l*l)}" ixy="0.0" ixz="0.0" 
+               iyy="${(m/12) * (w*w + l*l)}" iyz="0.0" 
+               izz="${(m/12) * (w*w + h*h)}"/>
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="cylinder_inertia" params="m r h">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia ixx="${(m/12) * (3*r*r + h*h)}" ixy="0" ixz="0" 
+               iyy="${(m/12) * (3*r*r + h*h)}" iyz="0" 
+               izz="${(m*r*r)/2}"/>
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="sphere_inertia" params="m r">
+    <inertial>
+      <mass value="${m}"/>
+      <inertia ixx="${(2/5) * m * r * r}" ixy="0" ixz="0" 
+               iyy="${(2/5) * m * r * r}" iyz="0" 
+               izz="${(2/5) * m * r * r}"/>
+    </inertial>
+  </xacro:macro>
+
+
+  <!-- ======================================================================= -->
+  <!--                           COMPONENT MACROS                              -->
+  <!-- ======================================================================= -->
+
+  <!-- Wheel Macro -->
+  <xacro:macro name="wheel" params="prefix reflect">
+    <link name="${prefix}_wheel">
+      <visual>
+        <geometry><cylinder length="${wheel_width}" radius="${wheel_radius}"/></geometry>
+        <material name="black"/>
+      </visual>
+      <collision>
+        <geometry><cylinder length="${wheel_width}" radius="${wheel_radius}"/></geometry>
+      </collision>
+      <xacro:cylinder_inertia m="${wheel_mass}" r="${wheel_radius}" h="${wheel_width}"/>
+    </link>
+    
+    <gazebo reference="${prefix}_wheel">
+      <mu1>200.0</mu1>
+      <mu2>200.0</mu2>
+      <kp>10000000.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.001</minDepth>
+      <maxVel>1.0</maxVel>
+    </gazebo>
+
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="${prefix}_wheel"/>
+      <origin xyz="${wheel_x_offset} ${reflect * wheel_y_offset} ${wheel_z_offset}" rpy="-1.5708 0 0"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Sliding Gate Macro -->
+  <xacro:macro name="sliding_gate" params="prefix y_pos lower_lim upper_lim">
+    <link name="${prefix}_gate">
+      <visual>
+        <geometry><box size="${gate_thick} ${gate_len} ${gate_height}"/></geometry>
+        <material name="red"/>
+      </visual>
+      <collision>
+        <geometry><box size="${gate_thick} ${gate_len} ${gate_height}"/></geometry>
+      </collision>
+      <xacro:box_inertia m="${gate_mass}" l="${gate_thick}" w="${gate_len}" h="${gate_height}"/>
+    </link>
+
+    <joint name="${prefix}_gate_joint" type="prismatic">
+      <parent link="base_link"/>
+      <child link="${prefix}_gate"/>
+      <origin xyz="${gate_x_mount} ${y_pos} 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${lower_lim}" upper="${upper_lim}" effort="10" velocity="0.5"/>
+    </joint>
+  </xacro:macro>
+
+
+  <!-- ======================================================================= -->
+  <!--                           MAIN ROBOT STRUCTURE                          -->
+  <!-- ======================================================================= -->
+
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.14" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <!-- Center Body -->
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry><box size="${base_len} ${base_width} ${base_height}"/></geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry><box size="${base_len} ${base_width} ${base_height}"/></geometry>
+    </collision>
+    <!-- Left Arm -->
+    <visual>
+      <origin xyz="${arm_x_offset} ${arm_y_offset} 0"/>
+      <geometry><box size="${arm_len} ${arm_thick} ${arm_height}"/></geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="${arm_x_offset} ${arm_y_offset} 0"/>
+      <geometry><box size="${arm_len} ${arm_thick} ${arm_height}"/></geometry>
+    </collision>
+    <!-- Right Arm -->
+    <visual>
+      <origin xyz="${arm_x_offset} -${arm_y_offset} 0"/>
+      <geometry><box size="${arm_len} ${arm_thick} ${arm_height}"/></geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="${arm_x_offset} -${arm_y_offset} 0"/>
+      <geometry><box size="${arm_len} ${arm_thick} ${arm_height}"/></geometry>
+    </collision>
+    <xacro:box_inertia m="${base_mass}" l="0.4" w="0.42" h="0.2"/>
+  </link>
+
+  <xacro:wheel prefix="left" reflect="1"/>
+  <xacro:wheel prefix="right" reflect="-1"/>
+
+  <link name="caster_wheel">
+    <visual>
+      <geometry><sphere radius="${caster_radius}"/></geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <geometry><sphere radius="${caster_radius}"/></geometry>
+    </collision>
+    <xacro:sphere_inertia m="${caster_mass}" r="${caster_radius}"/>
+  </link>
+  <joint name="caster_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="caster_wheel"/>
+    <origin xyz="${caster_x_offset} 0 ${caster_z_offset}"/> 
+  </joint>
+  <gazebo reference="caster_wheel">
+    <mu1>0.0</mu1><mu2>0.0</mu2>
+    <material>Gazebo/Silver</material>
+  </gazebo>
+
+  <xacro:sliding_gate prefix="left" y_pos="${gate_y_mount}" lower_lim="-${gate_travel}" upper_lim="0"/>
+  <xacro:sliding_gate prefix="right" y_pos="-${gate_y_mount}" lower_lim="0" upper_lim="${gate_travel}"/>
+
+
+  <!-- ======================================================================= -->
+  <!--                       ROS 2 CONTROL INTERFACE                           -->
+  <!-- ======================================================================= -->
+
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+    
+    <!-- Differential Drive Wheels -->
+    <joint name="left_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+    <joint name="right_wheel_joint">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+
+    <!-- Sliding Gates -->
+    <joint name="left_gate_joint">
+      <command_interface name="position">
+        <param name="min">-${gate_travel}</param>
+        <param name="max">0</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="right_gate_joint">
+      <command_interface name="position">
+        <param name="min">0</param>
+        <param name="max">${gate_travel}</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <!-- ======================================================================= -->
+  <!--                           GAZEBO PLUGINS                                -->
+  <!-- ======================================================================= -->
+
+  <gazebo>
+    <!-- [UPDATED] ROS 2 Control Bridge -->
+    <!-- It now uses the 'config_file' argument passed from the launch file -->
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>$(arg config_file)</parameters>
+    </plugin>
+
+    <!-- Sensors remain unchanged -->
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+    </plugin>
+
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+  </gazebo>
+
+  <!-- ======================================================================= -->
+  <!--                           SENSORS                                       -->
+  <!-- ======================================================================= -->
+
+  <link name="lidar_link">
+    <visual>
+      <geometry><cylinder length="0.04" radius="0.04"/></geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry><cylinder length="0.04" radius="0.04"/></geometry>
+    </collision>
+    <xacro:cylinder_inertia m="0.1" r="0.04" h="0.04"/>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+    <origin xyz="-0.01 0 0.12" rpy="0 0 0"/>
+  </joint>
+  <gazebo reference="lidar_link">
+    <sensor name="lidar" type="gpu_lidar">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <topic>/scan</topic>
+      <gz_frame_id>lidar_link</gz_frame_id>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+    </sensor>
+  </gazebo>
+
+  <link name="camera_link">
+    <visual>
+      <geometry><box size="0.02 0.1 0.05"/></geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0.06 0 0.0" rpy="0 0 0"/>
+  </joint>
+  <gazebo reference="camera_link">
+    <sensor name="camera" type="camera">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <topic>camera/image_raw</topic>
+      <gz_frame_id>camera_link</gz_frame_id>
+      <camera name="intel_realsense_r200">
+        <horizontal_fov>1.02974</horizontal_fov>
+        <image>
+          <width>1920</width>
+          <height>1080</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+    </sensor>
+  </gazebo>
+
+  <link name="imu_link">
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <gazebo reference="imu_link">
+    <sensor name="imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <topic>imu</topic>
+      <gz_frame_id>imu_link</gz_frame_id>
+      <imu>
+        <angular_velocity>
+          <x><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></x>
+          <y><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></y>
+          <z><noise type="gaussian"><mean>0.0</mean><stddev>2e-4</stddev></noise></z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></x>
+          <y><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></y>
+          <z><noise type="gaussian"><mean>0.0</mean><stddev>1.7e-2</stddev></noise></z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+  </gazebo>
+
+</robot>

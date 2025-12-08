@@ -1,0 +1,46 @@
+[0.561s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/spherebot_control': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/src/install/spherebot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_control build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/install.log --single-version-externally-managed install_data
+[0.740s] running egg_info
+[0.740s] creating ../build/spherebot_control/spherebot_control.egg-info
+[0.753s] writing ../build/spherebot_control/spherebot_control.egg-info/PKG-INFO
+[0.753s] writing dependency_links to ../build/spherebot_control/spherebot_control.egg-info/dependency_links.txt
+[0.753s] writing entry points to ../build/spherebot_control/spherebot_control.egg-info/entry_points.txt
+[0.753s] writing requirements to ../build/spherebot_control/spherebot_control.egg-info/requires.txt
+[0.753s] writing top-level names to ../build/spherebot_control/spherebot_control.egg-info/top_level.txt
+[0.753s] writing manifest file '../build/spherebot_control/spherebot_control.egg-info/SOURCES.txt'
+[0.780s] reading manifest file '../build/spherebot_control/spherebot_control.egg-info/SOURCES.txt'
+[0.780s] writing manifest file '../build/spherebot_control/spherebot_control.egg-info/SOURCES.txt'
+[0.780s] running build
+[0.780s] running build_py
+[0.780s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build
+[0.781s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib
+[0.781s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+[0.781s] copying spherebot_control/__init__.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+[0.781s] copying spherebot_control/safety_stop.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+[0.781s] copying spherebot_control/odom_fixer.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control
+[0.781s] running install
+[0.786s] running install_lib
+[0.799s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+[0.799s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control/__init__.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+[0.799s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control/safety_stop.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+[0.799s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build/lib/spherebot_control/odom_fixer.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control
+[0.799s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control/__init__.py to __init__.cpython-312.pyc
+[0.799s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control/safety_stop.py to safety_stop.cpython-312.pyc
+[0.800s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control/odom_fixer.py to odom_fixer.cpython-312.pyc
+[0.800s] running install_data
+[0.800s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index
+[0.800s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index/resource_index
+[0.800s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index/resource_index/packages
+[0.800s] copying resource/spherebot_control -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/ament_index/resource_index/packages
+[0.800s] copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control
+[0.801s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/launch
+[0.801s] copying launch/sim.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/launch
+[0.801s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/config
+[0.801s] copying config/controllers.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/config
+[0.801s] copying config/ekf.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/share/spherebot_control/config
+[0.801s] running install_egg_info
+[0.816s] Copying ../build/spherebot_control/spherebot_control.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages/spherebot_control-0.0.0-py3.12.egg-info
+[0.816s] running install_scripts
+[0.907s] Installing odom_fixer script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/spherebot_control
+[0.907s] Installing safety_stop script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/spherebot_control
+[0.908s] writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_control/install.log'
+[0.926s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/spherebot_control' returned '0': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/src/install/spherebot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_control build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_control/install.log --single-version-externally-managed install_data

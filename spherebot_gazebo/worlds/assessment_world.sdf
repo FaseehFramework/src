@@ -239,8 +239,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.8 0.3 0.3 1</ambient>
-            <diffuse>0.8 0.3 0.3 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -267,8 +267,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.3 0.8 0.3 1</ambient>
-            <diffuse>0.3 0.8 0.3 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -295,8 +295,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.3 0.3 0.8 1</ambient>
-            <diffuse>0.3 0.3 0.8 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -323,8 +323,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.8 0.8 0.3 1</ambient>
-            <diffuse>0.8 0.8 0.3 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -351,8 +351,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.8 0.3 0.8 1</ambient>
-            <diffuse>0.8 0.3 0.8 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -379,8 +379,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.5 0.8 0.8 1</ambient>
-            <diffuse>0.5 0.8 0.8 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -407,8 +407,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.8 0.5 0.2 1</ambient>
-            <diffuse>0.8 0.5 0.2 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -435,8 +435,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.2 0.5 0.8 1</ambient>
-            <diffuse>0.2 0.5 0.8 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>
@@ -463,8 +463,8 @@
             </cylinder>
           </geometry>
           <material>
-            <ambient>0.5 0.2 0.6 1</ambient>
-            <diffuse>0.5 0.2 0.6 1</diffuse>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
           </material>
         </visual>
       </link>

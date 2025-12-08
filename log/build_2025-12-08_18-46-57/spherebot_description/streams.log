@@ -1,0 +1,39 @@
+[6.168s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/spherebot_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_description build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/install.log --single-version-externally-managed install_data
+[6.367s] running egg_info
+[6.367s] creating ../build/spherebot_description/spherebot_description.egg-info
+[6.382s] writing ../build/spherebot_description/spherebot_description.egg-info/PKG-INFO
+[6.382s] writing dependency_links to ../build/spherebot_description/spherebot_description.egg-info/dependency_links.txt
+[6.382s] writing requirements to ../build/spherebot_description/spherebot_description.egg-info/requires.txt
+[6.382s] writing top-level names to ../build/spherebot_description/spherebot_description.egg-info/top_level.txt
+[6.382s] writing manifest file '../build/spherebot_description/spherebot_description.egg-info/SOURCES.txt'
+[6.412s] reading manifest file '../build/spherebot_description/spherebot_description.egg-info/SOURCES.txt'
+[6.412s] writing manifest file '../build/spherebot_description/spherebot_description.egg-info/SOURCES.txt'
+[6.412s] running build
+[6.413s] running build_py
+[6.413s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/build
+[6.413s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/build/lib
+[6.413s] creating /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/build/lib/spherebot_description
+[6.413s] copying spherebot_description/__init__.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/build/lib/spherebot_description
+[6.413s] running install
+[6.417s] running install_lib
+[6.433s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages/spherebot_description
+[6.433s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/build/lib/spherebot_description/__init__.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages/spherebot_description
+[6.434s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages/spherebot_description/__init__.py to __init__.cpython-312.pyc
+[6.434s] running install_data
+[6.434s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/ament_index
+[6.434s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/ament_index/resource_index
+[6.434s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/ament_index/resource_index/packages
+[6.434s] copying resource/spherebot_description -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/ament_index/resource_index/packages
+[6.434s] copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description
+[6.434s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description/launch
+[6.434s] copying launch/display.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description/launch
+[6.461s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description/urdf
+[6.461s] copying urdf/spherebot.urdf -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description/urdf
+[6.461s] copying urdf/spherebot.urdf.xacro -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description/urdf
+[6.461s] creating /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description/rviz
+[6.461s] copying rviz/urdf_config.rviz -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/share/spherebot_description/rviz
+[6.461s] running install_egg_info
+[6.477s] Copying ../build/spherebot_description/spherebot_description.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages/spherebot_description-0.0.0-py3.12.egg-info
+[6.477s] running install_scripts
+[6.580s] writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_description/install.log'
+[6.689s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/spherebot_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_description build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_description/install.log --single-version-externally-managed install_data
