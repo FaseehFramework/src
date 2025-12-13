@@ -24,6 +24,7 @@ diff_drive_base_controller:
     right_wheel_names: ["right_wheel_joint"]
     wheel_separation: 0.47
     wheel_radius: 0.06
+    open_loop: false
 
     # Odometry settings
     publish_rate: 50.0
@@ -45,7 +46,7 @@ diff_drive_base_controller:
     linear:
       x:
         has_velocity_limits: true
-        max_velocity: 1.0
+        max_velocity: 2.0
     angular:
       z:
         has_velocity_limits: true

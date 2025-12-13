@@ -34,11 +34,11 @@
 
   <!-- Gate Dimensions -->
   <xacro:property name="gate_thick" value="0.02"/>
-  <xacro:property name="gate_len" value="0.18"/>
+  <xacro:property name="gate_len" value="0.09"/>
   <xacro:property name="gate_height" value="0.18"/>
   <xacro:property name="gate_mass" value="0.1"/>
   <xacro:property name="gate_x_mount" value="0.4"/>
-  <xacro:property name="gate_y_mount" value="0.25"/> 
+  <xacro:property name="gate_y_mount" value="0.205"/> 
   <xacro:property name="gate_travel" value="0.25"/>
 
   <!-- Colors -->

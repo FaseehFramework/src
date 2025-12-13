@@ -229,7 +229,7 @@
   <link name="right_gate">
     <visual>
       <geometry>
-        <box size="0.02 0.18 0.18"/>
+        <box size="0.02 0.10 0.18"/>
       </geometry>
       <material name="red">
         <color rgba="1 0 0 1"/>
@@ -237,7 +237,7 @@
     </visual>
     <collision>
       <geometry>
-        <box size="0.02 0.18 0.18"/>
+        <box size="0.02 0.10 0.18"/>
       </geometry>
     </collision>
     <inertial>
