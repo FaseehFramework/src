@@ -1,7 +1,7 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, LaunchConfiguration
 from launch_ros.actions import Node
@@ -142,6 +142,34 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('rviz'))
     )
 
+# --- INTEGRATION: Sphere Spawner ---
+    
+    # 1. Bridge specifically for the spawn service
+    # This runs alongside your existing bridge without conflict.
+    # It bridges the service that allows us to create objects in the 'assessment_world'.
+    spawn_service_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=['/world/assessment_world/create@ros_gz_interfaces/srv/SpawnEntity'],
+        output='screen'
+    )
+
+    # 2. The Spawner Node
+    # We call the script directly from the assessment_world package so you don't need to copy it.
+    spawn_spheres_node = Node(
+        package='assessment_world',
+        executable='spawn_spheres.py',
+        name='sphere_spawner',
+        output='screen'
+    )
+
+    # 3. Delay to ensure Gazebo is fully loaded before spawning
+    # We wait 5 seconds (just like the tutor's launch file) to ensure the world exists.
+    delayed_spawn_spheres = TimerAction(
+        period=5.0,
+        actions=[spawn_spheres_node]
+    )
+
     return LaunchDescription([
         declare_rviz_cmd,
         node_robot_state_publisher,
@@ -155,5 +183,7 @@ def generate_launch_description():
         robot_localization_node,
         safety_stop_node,
         odom_fixer_node,
-        rviz_node
+        rviz_node,
+        spawn_service_bridge,
+        delayed_spawn_spheres
     ])
