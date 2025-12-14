@@ -1,0 +1,180 @@
+[0.193s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'spherebot_navigation']
+[0.193s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['spherebot_navigation'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7278b647b230>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7278b659ff50>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7278b659ff50>>)
+[0.257s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.258s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.258s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.258s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.258s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.258s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.258s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/faseeh/ros2/ros2_ws/src'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extension 'ignore_ament_install'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extensions ['colcon_pkg']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extension 'colcon_pkg'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extensions ['colcon_meta']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extension 'colcon_meta'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extensions ['ros']
+[0.312s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_assessment_world) by extension 'ros'
+[0.318s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_assessment_world' with type 'ros.ament_cmake' and name 'assessment_world'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extensions ['ignore', 'ignore_ament_install']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extension 'ignore'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extension 'ignore_ament_install'
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extensions ['colcon_pkg']
+[0.318s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extension 'colcon_pkg'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extensions ['colcon_meta']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extension 'colcon_meta'
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extensions ['ros']
+[0.319s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_control) by extension 'ros'
+[0.319s] DEBUG:colcon.colcon_core.package_identification:Package 'spherebot_control' with type 'ros.ament_python' and name 'spherebot_control'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extensions ['ignore', 'ignore_ament_install']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extension 'ignore'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extension 'ignore_ament_install'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extensions ['colcon_pkg']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extension 'colcon_pkg'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extensions ['colcon_meta']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extension 'colcon_meta'
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extensions ['ros']
+[0.320s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_description) by extension 'ros'
+[0.321s] DEBUG:colcon.colcon_core.package_identification:Package 'spherebot_description' with type 'ros.ament_python' and name 'spherebot_description'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extension 'ignore'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extension 'ignore_ament_install'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extensions ['colcon_pkg']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extension 'colcon_pkg'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extensions ['colcon_meta']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extension 'colcon_meta'
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extensions ['ros']
+[0.321s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_gazebo) by extension 'ros'
+[0.322s] DEBUG:colcon.colcon_core.package_identification:Package 'spherebot_gazebo' with type 'ros.ament_python' and name 'spherebot_gazebo'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extensions ['ignore', 'ignore_ament_install']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extension 'ignore'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extension 'ignore_ament_install'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extensions ['colcon_pkg']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extension 'colcon_pkg'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extensions ['colcon_meta']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extension 'colcon_meta'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extensions ['ros']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_navigation) by extension 'ros'
+[0.324s] DEBUG:colcon.colcon_core.package_identification:Package 'spherebot_navigation' with type 'ros.ament_python' and name 'spherebot_navigation'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extensions ['ignore', 'ignore_ament_install']
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extension 'ignore'
+[0.325s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extension 'ignore_ament_install'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extensions ['colcon_pkg']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extension 'colcon_pkg'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extensions ['colcon_meta']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extension 'colcon_meta'
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extensions ['ros']
+[0.326s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_slam) by extension 'ros'
+[0.328s] DEBUG:colcon.colcon_core.package_identification:Package 'spherebot_slam' with type 'ros.ament_python' and name 'spherebot_slam'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extension 'ignore'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extension 'ignore_ament_install'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extensions ['colcon_pkg']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extension 'colcon_pkg'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extensions ['colcon_meta']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extension 'colcon_meta'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extensions ['ros']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(spherebot_teleop) by extension 'ros'
+[0.331s] DEBUG:colcon.colcon_core.package_identification:Package 'spherebot_teleop' with type 'ros.ament_python' and name 'spherebot_teleop'
+[0.332s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.332s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.332s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.332s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.332s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.372s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'assessment_world' in 'ros2_assessment_world'
+[0.372s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'spherebot_description' in 'spherebot_description'
+[0.372s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'spherebot_slam' in 'spherebot_slam'
+[0.372s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'spherebot_teleop' in 'spherebot_teleop'
+[0.372s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'spherebot_control' in 'spherebot_control'
+[0.372s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'spherebot_gazebo' in 'spherebot_gazebo'
+[0.373s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.373s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.379s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 492 installed packages in /opt/ros/jazzy
+[0.383s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'cmake_args' from command line to 'None'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'cmake_target' from command line to 'None'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'cmake_clean_first' from command line to 'False'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'cmake_force_configure' from command line to 'False'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'ament_cmake_args' from command line to 'None'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.482s] Level 5:colcon.colcon_core.verb:set package 'spherebot_navigation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.483s] DEBUG:colcon.colcon_core.verb:Building package 'spherebot_navigation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation', 'merge_install': False, 'path': '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation', 'symlink_install': False, 'test_result_base': None}
+[0.483s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.487s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.487s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation' with build type 'ament_python'
+[0.488s] Level 1:colcon.colcon_core.shell:create_environment_hook('spherebot_navigation', 'ament_prefix_path')
+[0.491s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.491s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/hook/ament_prefix_path.ps1'
+[0.492s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/hook/ament_prefix_path.dsv'
+[0.493s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/hook/ament_prefix_path.sh'
+[0.494s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.494s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.993s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation'
+[0.993s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.993s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.332s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build
+[3.334s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build
+[3.338s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_navigation build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log --single-version-externally-managed install_data --force
+[4.420s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_navigation build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log --single-version-externally-managed install_data --force
+[4.422s] Level 1:colcon.colcon_core.environment:checking '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation' for CMake module files
+[4.423s] Level 1:colcon.colcon_core.environment:checking '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation' for CMake config files
+[4.424s] Level 1:colcon.colcon_core.environment:checking '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib'
+[4.424s] Level 1:colcon.colcon_core.environment:checking '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/bin'
+[4.425s] Level 1:colcon.colcon_core.environment:checking '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/pkgconfig/spherebot_navigation.pc'
+[4.425s] Level 1:colcon.colcon_core.environment:checking '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages'
+[4.425s] Level 1:colcon.colcon_core.shell:create_environment_hook('spherebot_navigation', 'pythonpath')
+[4.426s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/hook/pythonpath.ps1'
+[4.426s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/hook/pythonpath.dsv'
+[4.428s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/hook/pythonpath.sh'
+[4.429s] Level 1:colcon.colcon_core.environment:checking '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/bin'
+[4.430s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(spherebot_navigation)
+[4.430s] INFO:colcon.colcon_core.shell:Creating package script '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/package.ps1'
+[4.432s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/package.dsv'
+[4.432s] INFO:colcon.colcon_core.shell:Creating package script '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/package.sh'
+[4.436s] INFO:colcon.colcon_core.shell:Creating package script '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/package.bash'
+[4.496s] INFO:colcon.colcon_core.shell:Creating package script '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/package.zsh'
+[4.499s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/colcon-core/packages/spherebot_navigation)
+[4.501s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[4.501s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[4.501s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[4.501s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[4.510s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[4.510s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[4.510s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[4.545s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[4.545s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/faseeh/ros2/ros2_ws/src/install/local_setup.ps1'
+[4.547s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/faseeh/ros2/ros2_ws/src/install/_local_setup_util_ps1.py'
+[4.548s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/faseeh/ros2/ros2_ws/src/install/setup.ps1'
+[4.551s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/faseeh/ros2/ros2_ws/src/install/local_setup.sh'
+[4.554s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/faseeh/ros2/ros2_ws/src/install/_local_setup_util_sh.py'
+[4.556s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/faseeh/ros2/ros2_ws/src/install/setup.sh'
+[4.559s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/faseeh/ros2/ros2_ws/src/install/local_setup.bash'
+[4.562s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/faseeh/ros2/ros2_ws/src/install/setup.bash'
+[4.564s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/faseeh/ros2/ros2_ws/src/install/local_setup.zsh'
+[4.565s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/faseeh/ros2/ros2_ws/src/install/setup.zsh'

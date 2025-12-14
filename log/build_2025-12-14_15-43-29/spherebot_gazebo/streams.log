@@ -1,0 +1,21 @@
+[0.620s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/spherebot_gazebo': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/src/install/spherebot_control:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_gazebo build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/install.log --single-version-externally-managed install_data
+[0.821s] running egg_info
+[0.835s] writing ../build/spherebot_gazebo/spherebot_gazebo.egg-info/PKG-INFO
+[0.860s] writing dependency_links to ../build/spherebot_gazebo/spherebot_gazebo.egg-info/dependency_links.txt
+[0.860s] writing requirements to ../build/spherebot_gazebo/spherebot_gazebo.egg-info/requires.txt
+[0.860s] writing top-level names to ../build/spherebot_gazebo/spherebot_gazebo.egg-info/top_level.txt
+[0.889s] reading manifest file '../build/spherebot_gazebo/spherebot_gazebo.egg-info/SOURCES.txt'
+[0.890s] writing manifest file '../build/spherebot_gazebo/spherebot_gazebo.egg-info/SOURCES.txt'
+[0.890s] running build
+[0.890s] running build_py
+[0.890s] running install
+[0.895s] running install_lib
+[0.909s] running install_data
+[0.909s] copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo
+[0.923s] copying launch/spherebot_sim.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/share/spherebot_gazebo/launch
+[0.923s] running install_egg_info
+[0.939s] removing '/home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages/spherebot_gazebo-0.0.0-py3.12.egg-info' (and everything under it)
+[0.939s] Copying ../build/spherebot_gazebo/spherebot_gazebo.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages/spherebot_gazebo-0.0.0-py3.12.egg-info
+[0.940s] running install_scripts
+[1.065s] writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/install.log'
+[1.122s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/spherebot_gazebo' returned '0': AMENT_PREFIX_PATH=/home/faseeh/ros2/ros2_ws/src/install/spherebot_control:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description:${AMENT_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_gazebo/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/src/install/spherebot_control/lib/python3.12/site-packages:/home/faseeh/ros2/ros2_ws/src/install/spherebot_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_gazebo build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_gazebo/install.log --single-version-externally-managed install_data
