@@ -41,6 +41,12 @@
   <xacro:property name="gate_y_mount" value="0.25"/> 
   <xacro:property name="gate_travel" value="0.25"/>
 
+  <!-- Lidar Stand Dimensions -->
+  <xacro:property name="lidar_stand_height" value="0.4"/>
+  <xacro:property name="lidar_stand_radius" value="0.02"/>
+  <xacro:property name="lidar_stand_mass" value="0.3"/>
+
+
   <!-- Colors -->
   <material name="blue"><color rgba="0 0 0.8 1"/></material>
   <material name="black"><color rgba="0 0 0 1"/></material>
@@ -305,6 +311,38 @@
   <!--                           SENSORS                                       -->
   <!-- ======================================================================= -->
 
+  <link name="lidar_stand_link">
+  <visual>
+    <!-- Center of cylinder is half its height -->
+    <origin xyz="0 0 ${lidar_stand_height/2}" rpy="0 0 0"/>
+    <geometry>
+      <cylinder length="${lidar_stand_height}" radius="${lidar_stand_radius}"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 ${lidar_stand_height/2}" rpy="0 0 0"/>
+    <geometry>
+      <cylinder length="${lidar_stand_height}" radius="${lidar_stand_radius}"/>
+    </geometry>
+  </collision>
+
+  <xacro:cylinder_inertia
+    m="${lidar_stand_mass}"
+    r="${lidar_stand_radius}"
+    h="${lidar_stand_height}"/>
+</link>
+
+<joint name="lidar_stand_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="lidar_stand_link"/>
+  <origin xyz="-0.01 0 0.1" rpy="0 0 0"/>
+</joint>
+
+
+
+  <!-- Lidar -->
   <link name="lidar_link">
     <visual>
       <geometry><cylinder length="0.04" radius="0.04"/></geometry>
@@ -316,10 +354,11 @@
     <xacro:cylinder_inertia m="0.1" r="0.04" h="0.04"/>
   </link>
   <joint name="lidar_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="lidar_link"/>
-    <origin xyz="-0.01 0 0.12" rpy="0 0 0"/>
-  </joint>
+  <parent link="lidar_stand_link"/>
+  <child link="lidar_link"/>
+  <origin xyz="0 0 ${lidar_stand_height + 0.02}" rpy="0 0 0"/>
+</joint>
+
   <gazebo reference="lidar_link">
     <sensor name="lidar" type="gpu_lidar">
       <always_on>true</always_on>
