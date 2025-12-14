@@ -7,23 +7,23 @@
   
   <!-- Base Dimensions -->
   <xacro:property name="base_len" value="0.1"/>
-  <xacro:property name="base_width" value="0.42"/>
+  <xacro:property name="base_width" value="0.63"/>
   <xacro:property name="base_height" value="0.2"/>
   <xacro:property name="base_mass" value="10.0"/>
 
   <!-- U-Arm Dimensions -->
-  <xacro:property name="arm_len" value="0.35"/>
-  <xacro:property name="arm_thick" value="0.05"/>
+  <xacro:property name="arm_len" value="0.6"/>
+  <xacro:property name="arm_thick" value="0.02"/>
   <xacro:property name="arm_height" value="0.2"/>
-  <xacro:property name="arm_y_offset" value="0.185"/> 
-  <xacro:property name="arm_x_offset" value="0.225"/>
+  <xacro:property name="arm_y_offset" value="0.31"/> 
+  <xacro:property name="arm_x_offset" value="0.250"/>
 
   <!-- Wheel Dimensions -->
   <xacro:property name="wheel_radius" value="0.06"/>
   <xacro:property name="wheel_width" value="0.04"/>
   <xacro:property name="wheel_mass" value="0.5"/>
-  <xacro:property name="wheel_x_offset" value="0.3"/>
-  <xacro:property name="wheel_y_offset" value="0.235"/>
+  <xacro:property name="wheel_x_offset" value="0.45"/>
+  <xacro:property name="wheel_y_offset" value="0.335"/>
   <xacro:property name="wheel_z_offset" value="-0.08"/>
 
   <!-- Caster Dimensions -->
@@ -34,7 +34,7 @@
 
   <!-- Gate Dimensions -->
   <xacro:property name="gate_thick" value="0.02"/>
-  <xacro:property name="gate_len" value="0.18"/>
+  <xacro:property name="gate_len" value="0.30"/>
   <xacro:property name="gate_height" value="0.18"/>
   <xacro:property name="gate_mass" value="0.1"/>
   <xacro:property name="gate_x_mount" value="0.4"/>
@@ -118,27 +118,45 @@
     </joint>
   </xacro:macro>
 
-  <!-- Sliding Gate Macro -->
-  <xacro:macro name="sliding_gate" params="prefix y_pos lower_lim upper_lim">
-    <link name="${prefix}_gate">
-      <visual>
-        <geometry><box size="${gate_thick} ${gate_len} ${gate_height}"/></geometry>
-        <material name="red"/>
-      </visual>
-      <collision>
-        <geometry><box size="${gate_thick} ${gate_len} ${gate_height}"/></geometry>
-      </collision>
-      <xacro:box_inertia m="${gate_mass}" l="${gate_thick}" w="${gate_len}" h="${gate_height}"/>
-    </link>
+<xacro:macro name="revolute_gate" params="prefix y_sign axis_sign">
+  <link name="${prefix}_gate">
+    <visual>
+      <!-- Gate extends forward from hinge -->
+      <origin xyz="${gate_len/2} 0 0"/>
+      <geometry>
+        <box size="${gate_len} ${gate_thick} ${gate_height}"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin xyz="${gate_len/2} 0 0"/>
+      <geometry>
+        <box size="${gate_len} ${gate_thick} ${gate_height}"/>
+      </geometry>
+    </collision>
+    <xacro:box_inertia
+      m="${gate_mass}"
+      l="${gate_len}"
+      w="${gate_thick}"
+      h="${gate_height}"/>
+  </link>
 
-    <joint name="${prefix}_gate_joint" type="prismatic">
-      <parent link="base_link"/>
-      <child link="${prefix}_gate"/>
-      <origin xyz="${gate_x_mount} ${y_pos} 0" rpy="0 0 0"/>
-      <axis xyz="0 1 0"/>
-      <limit lower="${lower_lim}" upper="${upper_lim}" effort="10" velocity="0.5"/>
-    </joint>
-  </xacro:macro>
+  <joint name="${prefix}_gate_joint" type="revolute">
+  <parent link="base_link"/>
+  <child link="${prefix}_gate"/>
+
+  <origin
+    xyz="${arm_x_offset + arm_len/2} ${y_sign * arm_y_offset} 0"
+    rpy="0 0 0"/>
+
+  <axis xyz="0 0 ${axis_sign}"/>
+
+  <limit lower="0.0" upper="1.57" effort="15.0" velocity="2.0"/>
+  <dynamics damping="0.5" friction="0.3"/>
+</joint>
+
+</xacro:macro>
+
 
 
   <!-- ======================================================================= -->
@@ -210,8 +228,10 @@
     <material>Gazebo/Silver</material>
   </gazebo>
 
-  <xacro:sliding_gate prefix="left" y_pos="${gate_y_mount}" lower_lim="-${gate_travel}" upper_lim="0"/>
-  <xacro:sliding_gate prefix="right" y_pos="-${gate_y_mount}" lower_lim="0" upper_lim="${gate_travel}"/>
+  <xacro:revolute_gate prefix="left"  y_sign="1"  axis_sign="-1"/>
+  <xacro:revolute_gate prefix="right" y_sign="-1" axis_sign="1"/>
+
+
 
 
   <!-- ======================================================================= -->
@@ -241,23 +261,24 @@
       <state_interface name="position"/>
     </joint>
 
-    <!-- Sliding Gates -->
+    
     <joint name="left_gate_joint">
-      <command_interface name="position">
-        <param name="min">-${gate_travel}</param>
-        <param name="max">0</param>
-      </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
-    <joint name="right_gate_joint">
-      <command_interface name="position">
-        <param name="min">0</param>
-        <param name="max">${gate_travel}</param>
-      </command_interface>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-    </joint>
+  <command_interface name="position">
+    <param name="min">0.0</param>
+    <param name="max">1.57</param>
+  </command_interface>
+  <state_interface name="position"/>
+  <state_interface name="velocity"/>
+</joint>
+
+<joint name="right_gate_joint">
+  <command_interface name="position">
+    <param name="min">0.0</param>
+    <param name="max">1.57</param>
+  </command_interface>
+  <state_interface name="position"/>
+  <state_interface name="velocity"/>
+</joint>
   </ros2_control>
 
   <!-- ======================================================================= -->

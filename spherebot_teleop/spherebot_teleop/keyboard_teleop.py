@@ -55,14 +55,15 @@ class KeyboardTeleop(Node):
         self.linear_vel = 0.5
         self.angular_vel = 1.0
         
-        # Gate States (Positions based on your request)
-        # Close: Left -0.25, Right 0.25
-        # Open:  Left  0.0,  Right 0.0
-        self.gate_close_cmd_left = Float64MultiArray(data=[-0.25])
-        self.gate_close_cmd_right = Float64MultiArray(data=[0.25])
-        
-        self.gate_open_cmd_left = Float64MultiArray(data=[0.0])
+        # Gate States (REVOLUTE JOINTS, radians)
+        # Open:   0.0 rad
+        # Closed: 1.57 rad
+        self.gate_open_cmd_left  = Float64MultiArray(data=[0.0])
         self.gate_open_cmd_right = Float64MultiArray(data=[0.0])
+
+        self.gate_close_cmd_left  = Float64MultiArray(data=[1.57])
+        self.gate_close_cmd_right = Float64MultiArray(data=[1.57])
+
 
     def get_key(self):
         tty.setraw(sys.stdin.fileno())
