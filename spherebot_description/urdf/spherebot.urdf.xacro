@@ -52,6 +52,7 @@
   <material name="black"><color rgba="0 0 0 1"/></material>
   <material name="red"><color rgba="0.8 0 0 1"/></material>
   <material name="silver"><color rgba="0.7 0.7 0.7 1"/></material>
+  <material name="gray"><color rgba="0.5 0.5 0.5 1"/></material>
 
   <!-- [NEW] ARGUMENT FOR CONTROLLER CONFIG -->
   <!-- This allows the launch file to pass in the path to the yaml file -->
@@ -132,7 +133,7 @@
       <geometry>
         <box size="${gate_len} ${gate_thick} ${gate_height}"/>
       </geometry>
-      <material name="red"/>
+      <material name="gray"/>
     </visual>
     <collision>
       <origin xyz="${gate_len/2} 0 0"/>
@@ -146,6 +147,10 @@
       w="${gate_thick}"
       h="${gate_height}"/>
   </link>
+  <gazebo reference="${prefix}_gate">
+  <material>Gazebo/Grey</material>
+</gazebo>
+
 
   <joint name="${prefix}_gate_joint" type="revolute">
   <parent link="base_link"/>
