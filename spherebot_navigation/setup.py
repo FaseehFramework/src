@@ -34,6 +34,7 @@ setup(
         'console_scripts': [
             'mission_control = spherebot_navigation.mission_control:main',
             'vision_detector = spherebot_navigation.vision_detector:main',
+            'go_to_pen = spherebot_navigation.go_to_pen:main',
         ],
     },
 )

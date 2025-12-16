@@ -1,10 +1,16 @@
+#!/usr/bin/env python3
+"""
+Launch file for Go to Pen waypoint follower.
+Launches Nav2 stack, RViz, and the go_to_pen navigation node.
+"""
+
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+
 
 def generate_launch_description():
     pkg_nav = 'spherebot_navigation'
@@ -18,7 +24,6 @@ def generate_launch_description():
     params_file = os.path.join(get_package_share_directory(pkg_nav), 'config', 'nav2_params.yaml')
 
     # --- Launch Nav2 Bringup ---
-    # This launches everything: AMCL, Planner, Controller, BT Navigator, etc.
     nav2_bringup = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory(pkg_nav2_bringup), 'launch', 'bringup_launch.py')
@@ -27,12 +32,11 @@ def generate_launch_description():
             'map': map_file,
             'params_file': params_file,
             'use_sim_time': 'true',
-            'autostart': 'true'  # Automatically transitions the nodes to Active state
+            'autostart': 'true'
         }.items()
     )
 
     # --- RViz ---
-    # Launch RViz with the standard Nav2 configuration
     rviz = Node(
         package='rviz2',
         executable='rviz2',
@@ -41,7 +45,16 @@ def generate_launch_description():
         arguments=['-d', os.path.join(get_package_share_directory(pkg_nav2_bringup), 'rviz', 'nav2_default_view.rviz')]
     )
 
+    # --- Go to Pen Navigation Node ---
+    go_to_pen_node = Node(
+        package='spherebot_navigation',
+        executable='go_to_pen',
+        name='go_to_pen',
+        output='screen'
+    )
+
     return LaunchDescription([
         nav2_bringup,
-        rviz
+        rviz,
+        go_to_pen_node
     ])

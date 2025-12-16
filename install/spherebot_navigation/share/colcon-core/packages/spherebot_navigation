@@ -1,1 +1,1 @@
-nav2_bringup:nav2_common:nav2_map_server:nav2_msgs:navigation2:robot_localization:rviz2:slam_toolbox:spherebot_control:spherebot_description:spherebot_gazebo
+geometry_msgs:nav2_bringup:nav2_common:nav2_map_server:nav2_msgs:nav2_simple_commander:navigation2:robot_localization:rviz2:slam_toolbox

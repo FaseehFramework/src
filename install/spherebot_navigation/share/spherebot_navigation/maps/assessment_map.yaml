@@ -1,1 +1,7 @@
-/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/maps/assessment_map.yaml
+image: assessment_map.pgm
+mode: trinary
+resolution: 0.050
+origin: [-4.0, -4.0, 0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

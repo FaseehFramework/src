@@ -20,10 +20,10 @@
 
   <!-- Wheel Dimensions -->
   <xacro:property name="wheel_radius" value="0.06"/>
-  <xacro:property name="wheel_width" value="0.04"/>
+  <xacro:property name="wheel_width" value="0.02"/>
   <xacro:property name="wheel_mass" value="0.5"/>
   <xacro:property name="wheel_x_offset" value="0.45"/>
-  <xacro:property name="wheel_y_offset" value="0.335"/>
+  <xacro:property name="wheel_y_offset" value="0.310"/>
   <xacro:property name="wheel_z_offset" value="-0.08"/>
 
   <!-- Caster Dimensions -->

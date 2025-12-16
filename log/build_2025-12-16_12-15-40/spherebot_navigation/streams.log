@@ -1,0 +1,43 @@
+[0.594s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build
+[0.745s] running develop
+[0.830s] Removing /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot-navigation.egg-link (link to .)
+[0.849s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build
+[0.850s] Invoking command in '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_navigation build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log --single-version-externally-managed install_data --force
+[0.973s] running egg_info
+[0.980s] writing ../build/spherebot_navigation/spherebot_navigation.egg-info/PKG-INFO
+[0.980s] writing dependency_links to ../build/spherebot_navigation/spherebot_navigation.egg-info/dependency_links.txt
+[0.981s] writing entry points to ../build/spherebot_navigation/spherebot_navigation.egg-info/entry_points.txt
+[0.981s] writing requirements to ../build/spherebot_navigation/spherebot_navigation.egg-info/requires.txt
+[0.981s] writing top-level names to ../build/spherebot_navigation/spherebot_navigation.egg-info/top_level.txt
+[0.995s] reading manifest file '../build/spherebot_navigation/spherebot_navigation.egg-info/SOURCES.txt'
+[0.995s] writing manifest file '../build/spherebot_navigation/spherebot_navigation.egg-info/SOURCES.txt'
+[0.996s] running build
+[0.996s] running build_py
+[0.996s] copying spherebot_navigation/mission_control.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation
+[0.996s] copying spherebot_navigation/vision_detector.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation
+[0.996s] copying spherebot_navigation/go_to_pen.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation
+[0.996s] running install
+[1.001s] running install_lib
+[1.008s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation/mission_control.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation
+[1.008s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation/vision_detector.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation
+[1.008s] copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation/go_to_pen.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation
+[1.008s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation/mission_control.py to mission_control.cpython-312.pyc
+[1.010s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation/vision_detector.py to vision_detector.cpython-312.pyc
+[1.010s] byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation/go_to_pen.py to go_to_pen.cpython-312.pyc
+[1.011s] running install_data
+[1.011s] copying resource/spherebot_navigation -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/ament_index/resource_index/packages
+[1.011s] copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation
+[1.011s] copying launch/navigation.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch
+[1.011s] copying launch/go_to_pen.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch
+[1.011s] copying config/nav2_params.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/config
+[1.011s] copying maps/assessment_map.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps
+[1.011s] copying maps/assessment_map.pgm -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps
+[1.046s] running install_egg_info
+[1.054s] removing '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation-0.0.0-py3.12.egg-info' (and everything under it)
+[1.054s] Copying ../build/spherebot_navigation/spherebot_navigation.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation-0.0.0-py3.12.egg-info
+[1.091s] running install_scripts
+[1.144s] Installing go_to_pen script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation
+[1.144s] Installing mission_control script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation
+[1.145s] Installing vision_detector script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation
+[1.145s] writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log'
+[1.164s] Invoked command in '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/spherebot_navigation build --build-base /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build install --record /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log --single-version-externally-managed install_data --force

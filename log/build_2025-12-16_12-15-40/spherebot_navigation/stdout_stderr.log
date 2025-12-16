@@ -1,0 +1,39 @@
+running develop
+Removing /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot-navigation.egg-link (link to .)
+running egg_info
+writing ../build/spherebot_navigation/spherebot_navigation.egg-info/PKG-INFO
+writing dependency_links to ../build/spherebot_navigation/spherebot_navigation.egg-info/dependency_links.txt
+writing entry points to ../build/spherebot_navigation/spherebot_navigation.egg-info/entry_points.txt
+writing requirements to ../build/spherebot_navigation/spherebot_navigation.egg-info/requires.txt
+writing top-level names to ../build/spherebot_navigation/spherebot_navigation.egg-info/top_level.txt
+reading manifest file '../build/spherebot_navigation/spherebot_navigation.egg-info/SOURCES.txt'
+writing manifest file '../build/spherebot_navigation/spherebot_navigation.egg-info/SOURCES.txt'
+running build
+running build_py
+copying spherebot_navigation/mission_control.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation
+copying spherebot_navigation/vision_detector.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation
+copying spherebot_navigation/go_to_pen.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation
+running install
+running install_lib
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation/mission_control.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation/vision_detector.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation
+copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation/go_to_pen.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation/mission_control.py to mission_control.cpython-312.pyc
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation/vision_detector.py to vision_detector.cpython-312.pyc
+byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation/go_to_pen.py to go_to_pen.cpython-312.pyc
+running install_data
+copying resource/spherebot_navigation -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/ament_index/resource_index/packages
+copying package.xml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation
+copying launch/navigation.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch
+copying launch/go_to_pen.launch.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch
+copying config/nav2_params.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/config
+copying maps/assessment_map.yaml -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps
+copying maps/assessment_map.pgm -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps
+running install_egg_info
+removing '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../build/spherebot_navigation/spherebot_navigation.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation-0.0.0-py3.12.egg-info
+running install_scripts
+Installing go_to_pen script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation
+Installing mission_control script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation
+Installing vision_detector script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation
+writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log'

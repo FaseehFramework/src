@@ -1,0 +1,43 @@
+[0.000000] (-) TimerEvent: {}
+[0.000078] (-) JobUnselected: {'identifier': 'assessment_world'}
+[0.000166] (-) JobUnselected: {'identifier': 'spherebot_control'}
+[0.000180] (-) JobUnselected: {'identifier': 'spherebot_description'}
+[0.000189] (-) JobUnselected: {'identifier': 'spherebot_gazebo'}
+[0.000198] (-) JobUnselected: {'identifier': 'spherebot_slam'}
+[0.000206] (-) JobUnselected: {'identifier': 'spherebot_teleop'}
+[0.000217] (spherebot_navigation) JobQueued: {'identifier': 'spherebot_navigation', 'dependencies': OrderedDict()}
+[0.000380] (spherebot_navigation) JobStarted: {'identifier': 'spherebot_navigation'}
+[0.099857] (-) TimerEvent: {}
+[0.200035] (-) TimerEvent: {}
+[0.300215] (-) TimerEvent: {}
+[0.400431] (-) TimerEvent: {}
+[0.429464] (spherebot_navigation) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/spherebot_navigation', 'build', '--build-base', '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build', 'install', '--record', '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/faseeh/ros2/ros2_ws/src/spherebot_navigation', 'env': {'VSCODE_CWD': '/home/faseeh', 'VSCODE_ESM_ENTRYPOINT': 'vs/workbench/api/node/extensionHostProcess', 'USER': 'faseeh', 'VSCODE_NLS_CONFIG': '{"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/antigravity/resources/app/out/nls.messages.json","locale":"en-us","availableLanguages":{}}', 'VSCODE_HANDLES_UNCAUGHT_ERRORS': 'true', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '0', 'HOME': '/home/faseeh', 'CHROME_DESKTOP': 'antigravity.desktop', 'OLDPWD': '/home/faseeh/ros2/ros2_ws/src', 'DESKTOP_SESSION': 'ubuntu-wayland', 'NO_PROXY': '*.azureedge.net', 'VSCODE_IPC_HOOK': '/run/user/1000/vscode-7a193a5c-1.10-main.sock', 'GIO_LAUNCHED_DESKTOP_FILE': '/home/faseeh/.config/autostart/ulauncher.desktop', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '1956', 'SYSTEMD_EXEC_PID': '2255', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '2833', 'VSCODE_CRASH_REPORTER_PROCESS_TYPE': 'extensionHost', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'LOGNAME': 'faseeh', 'DESKTOP_AUTOSTART_ID': '1034ae9ad38d808924176586796827642800000022550016', 'JOURNAL_STREAM': '9:20699', '_': '/usr/bin/colcon', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\\x2dsession\\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'faseeh', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ANTIGRAVITY_EDITOR_APP_ROOT': '/usr/share/antigravity/resources/app', 'PATH': '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/THinkbookROS:@/tmp/.ICE-unix/2255,unix/THinkbookROS:/tmp/.ICE-unix/2255', 'INVOCATION_ID': '1bac7065211344ea9ce8bdb3335e247e', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu-wayland', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.XHSLH3', 'SBX_CHROME_API_RQ': '1', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'ELECTRON_RUN_AS_NODE': '1', 'GDMSESSION': 'ubuntu-wayland', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu-wayland:/etc/xdg', 'VSCODE_CODE_CACHE_PATH': '/home/faseeh/.config/Antigravity/CachedData/b31a0ea425328717c6bd1cff12c6755fd3d63a9d', 'XDG_DATA_DIRS': '/usr/share/ubuntu-wayland:/usr/share/gnome:/home/faseeh/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VSCODE_PID': '5251', 'PYTHONPATH': '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages:'}, 'shell': False}
+[0.500527] (-) TimerEvent: {}
+[0.557683] (spherebot_navigation) StdoutLine: {'line': b'running egg_info\n'}
+[0.564569] (spherebot_navigation) StdoutLine: {'line': b'writing ../build/spherebot_navigation/spherebot_navigation.egg-info/PKG-INFO\n'}
+[0.564705] (spherebot_navigation) StdoutLine: {'line': b'writing dependency_links to ../build/spherebot_navigation/spherebot_navigation.egg-info/dependency_links.txt\n'}
+[0.564903] (spherebot_navigation) StdoutLine: {'line': b'writing entry points to ../build/spherebot_navigation/spherebot_navigation.egg-info/entry_points.txt\n'}
+[0.565050] (spherebot_navigation) StdoutLine: {'line': b'writing requirements to ../build/spherebot_navigation/spherebot_navigation.egg-info/requires.txt\n'}
+[0.565110] (spherebot_navigation) StdoutLine: {'line': b'writing top-level names to ../build/spherebot_navigation/spherebot_navigation.egg-info/top_level.txt\n'}
+[0.578681] (spherebot_navigation) StdoutLine: {'line': b"reading manifest file '../build/spherebot_navigation/spherebot_navigation.egg-info/SOURCES.txt'\n"}
+[0.579374] (spherebot_navigation) StdoutLine: {'line': b"writing manifest file '../build/spherebot_navigation/spherebot_navigation.egg-info/SOURCES.txt'\n"}
+[0.579457] (spherebot_navigation) StdoutLine: {'line': b'running build\n'}
+[0.579523] (spherebot_navigation) StdoutLine: {'line': b'running build_py\n'}
+[0.579633] (spherebot_navigation) StdoutLine: {'line': b'copying spherebot_navigation/mission_control.py -> /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation\n'}
+[0.579889] (spherebot_navigation) StdoutLine: {'line': b'running install\n'}
+[0.584778] (spherebot_navigation) StdoutLine: {'line': b'running install_lib\n'}
+[0.591891] (spherebot_navigation) StdoutLine: {'line': b'copying /home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/build/lib/spherebot_navigation/mission_control.py -> /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation\n'}
+[0.592493] (spherebot_navigation) StdoutLine: {'line': b'byte-compiling /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation/mission_control.py to mission_control.cpython-312.pyc\n'}
+[0.594223] (spherebot_navigation) StdoutLine: {'line': b'running install_data\n'}
+[0.594457] (spherebot_navigation) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.600612] (-) TimerEvent: {}
+[0.602501] (spherebot_navigation) StdoutLine: {'line': b"removing '/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[0.602641] (spherebot_navigation) StdoutLine: {'line': b'Copying ../build/spherebot_navigation/spherebot_navigation.egg-info to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/python3.12/site-packages/spherebot_navigation-0.0.0-py3.12.egg-info\n'}
+[0.603310] (spherebot_navigation) StdoutLine: {'line': b'running install_scripts\n'}
+[0.660345] (spherebot_navigation) StdoutLine: {'line': b'Installing go_to_pen script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation\n'}
+[0.660568] (spherebot_navigation) StdoutLine: {'line': b'Installing mission_control script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation\n'}
+[0.660621] (spherebot_navigation) StdoutLine: {'line': b'Installing vision_detector script to /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/lib/spherebot_navigation\n'}
+[0.660816] (spherebot_navigation) StdoutLine: {'line': b"writing list of installed files to '/home/faseeh/ros2/ros2_ws/src/build/spherebot_navigation/install.log'\n"}
+[0.679847] (spherebot_navigation) CommandEnded: {'returncode': 0}
+[0.686462] (spherebot_navigation) JobEnded: {'identifier': 'spherebot_navigation', 'rc': 0}
+[0.686815] (-) EventReactorShutdown: {}
