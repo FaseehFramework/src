@@ -239,12 +239,13 @@ def main():
         rclpy.spin_once(listener, timeout_sec=0.1)
         time.sleep(0.1)
 
-    print(">>> RETURNING HOME.")
+    print(">>> GATES CLOSED! RETURNING HOME...")
     time.sleep(1.0)
 
-    # PHASE 3: RETURN
-    wp_pen = create_pose(navigator, 0.1, 3.5, 1.57) 
-    print(f">>> RETURNING HOME (Goal: {wp_pen.pose.position.x}, {wp_pen.pose.position.y})...")
+    # PHASE 3: RETURN HOME (First time)
+    wp_pen = create_pose(navigator, 0.1, 3.5, 1.57)
+    
+    print(f">>> NAVIGATING TO HOME (Goal: {wp_pen.pose.position.x}, {wp_pen.pose.position.y})...")
     navigator.goToPose(wp_pen)
 
     while not navigator.isTaskComplete():
@@ -252,9 +253,65 @@ def main():
 
     result = navigator.getResult()
     if result == TaskResult.SUCCEEDED:
-        print(">>> MISSION COMPLETE: GOAL REACHED!")
+        print(">>> HOME REACHED!")
     else:
-        print(">>> MISSION FAILED!")
+        print(">>> NAVIGATION FAILED!")
+
+    # PHASE 4: INTERACTIVE COMMAND LOOP
+    print("\n" + "="*60)
+    print(">>> INTERACTIVE MODE")
+    print(">>> Type 'go' to navigate home from current position")
+    print(">>> Type 'exit' to quit the program")
+    print("="*60)
+    
+    import threading
+    import sys
+    
+    user_command = [None]  # Use list to share between threads
+    command_lock = threading.Lock()
+    
+    def input_thread():
+        """Thread to handle user input without blocking ROS"""
+        while rclpy.ok():
+            try:
+                cmd = input(">>> Enter command: ").strip().lower()
+                with command_lock:
+                    user_command[0] = cmd
+            except EOFError:
+                break
+    
+    # Start input thread
+    input_handler = threading.Thread(target=input_thread, daemon=True)
+    input_handler.start()
+    
+    # Main command processing loop
+    while rclpy.ok():
+        # Keep ROS alive
+        rclpy.spin_once(listener, timeout_sec=0.1)
+        
+        # Check for user command
+        with command_lock:
+            cmd = user_command[0]
+            user_command[0] = None  # Clear after reading
+        
+        if cmd == 'go':
+            print("\n>>> NAVIGATING TO HOME FROM CURRENT POSITION...")
+            navigator.goToPose(wp_pen)
+            
+            while not navigator.isTaskComplete():
+                rclpy.spin_once(listener, timeout_sec=0.1)
+            
+            result = navigator.getResult()
+            if result == TaskResult.SUCCEEDED:
+                print(">>> HOME REACHED!")
+            else:
+                print(">>> NAVIGATION FAILED!")
+            
+            print("\n>>> Waiting for next command...")
+            
+        elif cmd == 'exit':
+            print("\n>>> EXITING PROGRAM...")
+            break
     
     rclpy.shutdown()
 

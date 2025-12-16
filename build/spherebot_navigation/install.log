@@ -10,6 +10,7 @@
 /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/package.xml
 /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch/navigation.launch.py
 /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch/go_to_pen.launch.py
+/home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/launch/complete_mission.launch.py
 /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/config/nav2_params.yaml
 /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps/assessment_map.yaml
 /home/faseeh/ros2/ros2_ws/src/install/spherebot_navigation/share/spherebot_navigation/maps/assessment_map.pgm

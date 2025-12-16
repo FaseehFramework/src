@@ -12,14 +12,19 @@ INITIAL_X = -3.69
 INITIAL_Y = 0.0
 INITIAL_YAW = 0.0
 
-TARGET_VISUAL_WIDTH = 0.20
-OBSTACLE_DIST_THRESH = 1.2  # React if obstacle is closer than 1.2m (robot is 0.66m wide + safety)
-AVOID_WEIGHT = 3.5          # How hard to turn away from obstacles (reduced to prevent over-steering)
-SEARCH_SPEED = 0.4          # Rotation speed when searching for lost ball
-EMERGENCY_DIST = 0.5        # Emergency stop distance
-VISION_DEADZONE = 0.15      # Ignore small tracking errors to prevent wiggling
-MIN_FORWARD_SPEED = 0.08    # Minimum speed when ball detected (prevents getting stuck)
-MAX_ANGULAR_VEL = 1.2       # Cap angular velocity to prevent excessive turns
+TARGET_VISUAL_WIDTH = 0.40
+OBSTACLE_DIST_THRESH = 0.8  
+AVOID_WEIGHT = 2.0          
+SEARCH_SPEED = 0.4          
+# EMERGENCY_DIST: Distance to trigger the "Back-Out" maneuver
+EMERGENCY_DIST = 0.45       
+VISION_DEADZONE = 0.10      
+MIN_FORWARD_SPEED = 0.08    
+MAX_ANGULAR_VEL = 1.0       
+
+# TIMING SETTINGS
+RECOVERY_DURATION = 1.5     # Time to clear obstacle after losing ball
+BACKUP_DURATION = 2.0       # [NEW] Time to reverse when stuck
 
 class MissionListener(Node):
     def __init__(self):
@@ -29,21 +34,18 @@ class MissionListener(Node):
         self.target_detected = False
         self.gates_closed = False
         
-        # Obstacle Forces (Left vs Right)
+        # Obstacle Forces
         self.avoid_turn = 0.0
-        self.emergency_stop = False  # Flag for very close obstacles
+        self.emergency_stop = False
         
-        # Ball tracking memory for search mode
-        self.last_track_error = 0.0
+        # State Memory
+        self.last_avoidance_direction = 0.0
+        self.is_avoiding = False
+        self.recovery_start_time = 0.0 
+        self.backup_start_time = 0.0  # [NEW] Timer for backing up
         
-        # Directional memory for smart search
-        self.last_avoidance_direction = 0.0  # Positive = turned left, Negative = turned right
-        self.was_avoiding = False  # Track if we were avoiding in the last cycle
-        
-        # Subscriptions
         self.create_subscription(Point, '/vision/tracking_data', self.vision_cb, 10)
         self.create_subscription(JointState, '/joint_states', self.joint_cb, qos_profile_sensor_data)
-        # Lidar is CRITICAL for obstacle avoidance
         self.create_subscription(LaserScan, '/scan', self.scan_cb, qos_profile_sensor_data)
 
     def vision_cb(self, msg):
@@ -51,65 +53,53 @@ class MissionListener(Node):
             self.target_detected = True
             self.track_error = msg.x
             self.visual_width = msg.y
-            # Remember last ball direction for search mode
-            self.last_track_error = msg.x
         else:
             self.target_detected = False
 
     def scan_cb(self, msg):
-        # CORRECTED LIDAR INDEXING:
-        # Lidar: min_angle=-3.14, max_angle=3.14, 360 samples
-        # Index 0   = -PI (-180°) = back-right
-        # Index 90  = -PI/2 (-90°) = right side
-        # Index 180 = 0 (0°) = FRONT
-        # Index 270 = +PI/2 (+90°) = left side
-        
         ranges = msg.ranges
-        num_readings = len(ranges)  # Should be 360
+        if len(ranges) < 360: return
         
-        if num_readings == 0:
-            return
+        # Front-Left: 180 to 230 (+50 deg)
+        front_left_sector = ranges[180:230]
+        # Front-Right: 130 to 180 (-50 deg)
+        front_right_sector = ranges[130:180]
         
-        # Front is at index 180 (0 radians)
-        # Scan wider arc: 160° forward (80° left + 80° right)
-        # Left sector: indices 180 to 260 (0° to +80°)
-        # Right sector: indices 100 to 180 (-80° to 0°)
+        # Emergency Cone: +/- 15 degrees (Slightly wider to catch corners)
+        front_cone = ranges[165:195]
         
-        front_left_sector = ranges[180:260] if len(ranges) > 260 else ranges[180:]
-        front_right_sector = ranges[100:180]
-        
-        # Also check narrow front cone for emergency stop
-        front_cone = ranges[170:190] if len(ranges) > 190 else ranges[170:]
-        
-        # Filter valid readings in different zones
         emergency_zone = [r for r in front_cone if 0.05 < r < EMERGENCY_DIST]
         left_valid = [r for r in front_left_sector if 0.05 < r < OBSTACLE_DIST_THRESH]
         right_valid = [r for r in front_right_sector if 0.05 < r < OBSTACLE_DIST_THRESH]
         
-        # EMERGENCY STOP: Very close obstacle directly ahead
+        # 1. EMERGENCY CHECK
         if len(emergency_zone) > 0:
             self.emergency_stop = True
-            self.avoid_turn = 0.0
-            return
+            # Force a slight turn while backing up to help un-wedge
+            self.avoid_turn = 0.0 
         else:
             self.emergency_stop = False
         
         turn_cmd = 0.0
         
-        # 1. If Obstacle on LEFT -> Turn RIGHT (Negative Z)
+        # 2. STANDARD AVOIDANCE
         if len(left_valid) > 0:
             min_dist = min(left_valid)
-            # Stronger push if closer
             push = (OBSTACLE_DIST_THRESH - min_dist) / OBSTACLE_DIST_THRESH
             turn_cmd -= push * AVOID_WEIGHT
 
-        # 2. If Obstacle on RIGHT -> Turn LEFT (Positive Z)
         if len(right_valid) > 0:
             min_dist = min(right_valid)
             push = (OBSTACLE_DIST_THRESH - min_dist) / OBSTACLE_DIST_THRESH
             turn_cmd += push * AVOID_WEIGHT
             
         self.avoid_turn = turn_cmd
+        
+        if abs(turn_cmd) > 0.2:
+            self.is_avoiding = True
+            self.last_avoidance_direction = turn_cmd 
+        else:
+            self.is_avoiding = False
 
     def joint_cb(self, msg):
         try:
@@ -139,15 +129,14 @@ def main():
     
     vel_pub = listener.create_publisher(TwistStamped, '/diff_drive_base_controller/cmd_vel', 10)
 
-    # Init Pose & Waypoints
+    # Init Pose
     initial_pose = create_pose(navigator, INITIAL_X, INITIAL_Y, INITIAL_YAW)
     navigator.setInitialPose(initial_pose)
     navigator.waitUntilNav2Active()
 
     wp_sphere = create_pose(navigator, 1.5, 0.0, 0.0)
-    wp_pen = create_pose(navigator, 7.0, 34.0, 58.0)
-
-    # --- PHASE 1: SEARCH ---
+    
+    # PHASE 1: SEARCH
     print(">>> PHASE 1: Moving to Search Area...")
     navigator.goToPose(wp_sphere)
 
@@ -158,8 +147,8 @@ def main():
             navigator.cancelTask()
             break
 
-    # --- PHASE 1.5: SMART CHASE WITH OBSTACLE AVOIDANCE ---
-    print(f">>> CHASING TARGET WITH OBSTACLE AVOIDANCE...")
+    # PHASE 1.5: SMART CHASE
+    print(f">>> CHASING TARGET (Smart Recovery Mode)...")
     
     twist_msg = TwistStamped()
     twist_msg.header.frame_id = 'base_link'
@@ -167,8 +156,9 @@ def main():
     while rclpy.ok():
         rclpy.spin_once(listener, timeout_sec=0.1)
         twist_msg.header.stamp = listener.get_clock().now().to_msg()
+        current_time = listener.get_clock().now().nanoseconds / 1e9
         
-        # Check if target reached
+        # SUCCESS CONDITION
         if listener.target_detected and listener.visual_width >= TARGET_VISUAL_WIDTH:
             print(">>> TARGET REACHED. STOPPING.")
             twist_msg.twist.linear.x = 0.0
@@ -176,113 +166,152 @@ def main():
             vel_pub.publish(twist_msg)
             break
         
-        # --- 4-PRIORITY BLENDED CONTROL ---
+        # ==========================================================
+        # PRIORITY 1: EMERGENCY BACK-OUT MANEUVER
+        # ==========================================================
         
-        # PRIORITY 1: EMERGENCY STOP
+        # If currently too close, reset the backup timer
         if listener.emergency_stop:
-            print("!!! EMERGENCY STOP - Obstacle too close!")
-            twist_msg.twist.linear.x = 0.0
-            twist_msg.twist.angular.z = 0.0
+            listener.backup_start_time = current_time
+            print("!!! OBSTACLE INSIDE GRIPPER! INITIATING BACKOUT...")
+
+        # If the timer is active (meaning we were too close recently), keep backing up
+        # This ensures we back up for a full 2 seconds even if the sensor clears instantly
+        if (current_time - listener.backup_start_time) < BACKUP_DURATION:
+            twist_msg.twist.linear.x = -0.2  # REVERSE SPEED
+            
+            # Slight turn helps unhook the U-arm if caught
+            # We turn opposite to the last known obstacle direction
+            twist_msg.twist.angular.z = 0.5 if listener.last_avoidance_direction < 0 else -0.5
+            
             vel_pub.publish(twist_msg)
             continue
+            
+        # ==========================================================
         
-        # PRIORITY 2: SEARCH MODE (ball lost)
+        # PRIORITY 2: BALL LOST -> RECOVERY LOGIC
         if not listener.target_detected:
-            print(f"Ball lost! Searching... (last avoidance: {listener.last_avoidance_direction:.2f})")
-            twist_msg.twist.linear.x = 0.0  # Don't move forward blind
-            
-            # SMART SEARCH: Rotate OPPOSITE to the last avoidance direction
-            # If we steered left (+) to avoid, search right (-), and vice versa
-            if abs(listener.last_avoidance_direction) > 0.3:
-                # We had a significant avoidance maneuver - search opposite way
-                search_direction = -1.0 * SEARCH_SPEED * (1.0 if listener.last_avoidance_direction > 0 else -1.0)
+            if listener.is_avoiding or (current_time - listener.recovery_start_time < RECOVERY_DURATION):
+                if listener.recovery_start_time == 0:
+                    listener.recovery_start_time = current_time
+                    print("!!! LOST TARGET NEAR OBSTACLE. CLEARING ZONE...")
+
+                # Drive FORWARD and curve away
+                twist_msg.twist.linear.x = 0.15
+                recovery_turn = 0.5 if listener.last_avoidance_direction > 0 else -0.5
+                twist_msg.twist.angular.z = recovery_turn
+                
             else:
-                # No clear avoidance direction - default clockwise search
-                search_direction = SEARCH_SPEED
+                listener.recovery_start_time = 0
+                twist_msg.twist.linear.x = 0.0
+                twist_msg.twist.angular.z = SEARCH_SPEED
             
-            # Apply search + any current obstacle avoidance
-            twist_msg.twist.angular.z = search_direction + listener.avoid_turn
             vel_pub.publish(twist_msg)
             continue
-        
-        # PRIORITY 3 & 4: CHASE WITH OBSTACLE AVOIDANCE (blended)
-        
-        # Apply dead zone to vision tracking (prevents micro-oscillations)
+            
+        else:
+            listener.recovery_start_time = 0
+
+        # PRIORITY 3: CHASE & AVOID
         if abs(listener.track_error) < VISION_DEADZONE:
             vision_turn = 0.0
         else:
-            # Attraction: Turn towards ball (reduced gain for smoother control)
-            vision_turn = listener.track_error * 1.2
-        
-        # Repulsion: Turn away from obstacles
+            vision_turn = listener.track_error * 1.5
+
         avoidance_turn = listener.avoid_turn
         
-        # Track if we're currently avoiding obstacles
-        if abs(avoidance_turn) > 0.5:
-            listener.was_avoiding = True
-            listener.last_avoidance_direction = avoidance_turn  # Remember which way we turned
-        else:
-            listener.was_avoiding = False
-        
-        # Blend both influences
         final_turn = vision_turn + avoidance_turn
-        
-        # Cap angular velocity to prevent 180° spins
         final_turn = max(-MAX_ANGULAR_VEL, min(MAX_ANGULAR_VEL, final_turn))
         
-        # Adaptive speed based on obstacle proximity
-        if abs(avoidance_turn) > 2.0:
-            # Strong avoidance needed - creep forward
+        if abs(final_turn) > 0.8:
             linear_speed = 0.05
-        elif abs(avoidance_turn) > 1.0:
-            # Moderate avoidance - slow down
-            linear_speed = 0.10
         else:
-            # Clear path - normal chase speed
             linear_speed = 0.15
-        
-        # Ensure minimum forward speed when ball is detected (prevents getting stuck)
+
         twist_msg.twist.linear.x = max(MIN_FORWARD_SPEED, linear_speed)
         twist_msg.twist.angular.z = final_turn
         
         vel_pub.publish(twist_msg)
 
-    # --- PHASE 2: MANUAL DOCKING ---
+    # PHASE 2: MANUAL DOCKING
     print("\n>>> PHASE 2: MANUAL DOCKING. CLOSE GATES ('c').")
     while not listener.gates_closed:
         rclpy.spin_once(listener, timeout_sec=0.1)
         time.sleep(0.1)
 
-    print(">>> RETURNING HOME.")
+    print(">>> GATES CLOSED! RETURNING HOME...")
     time.sleep(1.0)
 
-# ==========================
-    # PHASE 3: RETURN
-    # ==========================
-    # Use coordinates INSIDE the 8x8m box
-    # Example: Top-Left corner of the arena
-    wp_pen = create_pose(navigator, 0.1, 2.5, 1.57) 
+    # PHASE 3: RETURN HOME (First time)
+    wp_pen = create_pose(navigator, 0.1, 3.5, 1.57)
     
-    print(f">>> RETURNING HOME (Goal: {wp_pen.pose.position.x}, {wp_pen.pose.position.y})...")
+    print(f">>> NAVIGATING TO HOME (Goal: {wp_pen.pose.position.x}, {wp_pen.pose.position.y})...")
     navigator.goToPose(wp_pen)
 
     while not navigator.isTaskComplete():
-        feedback = navigator.getFeedback()
-        # Optional: Print distance remaining
-        # if feedback:
-        #     print(f"Distance remaining: {feedback.distance_remaining:.2f}")
         rclpy.spin_once(listener, timeout_sec=0.1)
 
-    # CHECK THE ACTUAL RESULT
     result = navigator.getResult()
-    
     if result == TaskResult.SUCCEEDED:
-        print(">>> MISSION COMPLETE: GOAL REACHED!")
-    elif result == TaskResult.CANCELED:
-        print(">>> MISSION FAILED: GOAL WAS CANCELED!")
-    elif result == TaskResult.FAILED:
-        print(">>> MISSION FAILED: GOAL UNREACHABLE OR ABORTED!")
-        print("    (Check if goal is inside the map walls)")
+        print(">>> HOME REACHED!")
+    else:
+        print(">>> NAVIGATION FAILED!")
+
+    # PHASE 4: INTERACTIVE COMMAND LOOP
+    print("\n" + "="*60)
+    print(">>> INTERACTIVE MODE")
+    print(">>> Type 'go' to navigate home from current position")
+    print(">>> Type 'exit' to quit the program")
+    print("="*60)
+    
+    import threading
+    import sys
+    
+    user_command = [None]  # Use list to share between threads
+    command_lock = threading.Lock()
+    
+    def input_thread():
+        """Thread to handle user input without blocking ROS"""
+        while rclpy.ok():
+            try:
+                cmd = input(">>> Enter command: ").strip().lower()
+                with command_lock:
+                    user_command[0] = cmd
+            except EOFError:
+                break
+    
+    # Start input thread
+    input_handler = threading.Thread(target=input_thread, daemon=True)
+    input_handler.start()
+    
+    # Main command processing loop
+    while rclpy.ok():
+        # Keep ROS alive
+        rclpy.spin_once(listener, timeout_sec=0.1)
+        
+        # Check for user command
+        with command_lock:
+            cmd = user_command[0]
+            user_command[0] = None  # Clear after reading
+        
+        if cmd == 'go':
+            print("\n>>> NAVIGATING TO HOME FROM CURRENT POSITION...")
+            navigator.goToPose(wp_pen)
+            
+            while not navigator.isTaskComplete():
+                rclpy.spin_once(listener, timeout_sec=0.1)
+            
+            result = navigator.getResult()
+            if result == TaskResult.SUCCEEDED:
+                print(">>> HOME REACHED!")
+            else:
+                print(">>> NAVIGATION FAILED!")
+            
+            print("\n>>> Waiting for next command...")
+            
+        elif cmd == 'exit':
+            print("\n>>> EXITING PROGRAM...")
+            break
     
     rclpy.shutdown()
 
