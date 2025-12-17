@@ -65,7 +65,7 @@ def generate_launch_description():
         arguments=[
             '-topic', 'robot_description',
             '-name', 'spherebot',
-            '-x', '-3.69',   # Set X position to 0
+            '-x', '-3.0',   # Set X position to -3.0
             '-y', '0.0',   # Set Y position to 0
             '-z', '0.1',   # Keep Z offset to avoid spawning inside the floor
             '-Y', '0.0'    # Set Yaw (Rotation around Z) to 0.0 (Facing East/X+)

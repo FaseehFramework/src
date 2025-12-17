@@ -8,16 +8,16 @@ from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 from sensor_msgs.msg import JointState, LaserScan
 
 # --- CONFIGURATION ---
-INITIAL_X = -3.69
+INITIAL_X = -3.0
 INITIAL_Y = 0.0
 INITIAL_YAW = 0.0
 
 TARGET_VISUAL_WIDTH = 0.40
-OBSTACLE_DIST_THRESH = 0.8  
+OBSTACLE_DIST_THRESH = 1.2  
 AVOID_WEIGHT = 2.0          
 SEARCH_SPEED = 0.4          
 # EMERGENCY_DIST: Distance to trigger the "Back-Out" maneuver
-EMERGENCY_DIST = 0.45       
+EMERGENCY_DIST = 0.7       
 VISION_DEADZONE = 0.10      
 MIN_FORWARD_SPEED = 0.08    
 MAX_ANGULAR_VEL = 1.0       
@@ -65,8 +65,8 @@ class MissionListener(Node):
         # Front-Right: 130 to 180 (-50 deg)
         front_right_sector = ranges[130:180]
         
-        # Emergency Cone: +/- 15 degrees (Slightly wider to catch corners)
-        front_cone = ranges[165:195]
+        # Emergency Cone: +/- 45 degrees (Wider to catch corners of U-shape)
+        front_cone = ranges[135:225]
         
         emergency_zone = [r for r in front_cone if 0.05 < r < EMERGENCY_DIST]
         left_valid = [r for r in front_left_sector if 0.05 < r < OBSTACLE_DIST_THRESH]
@@ -130,22 +130,51 @@ def main():
     vel_pub = listener.create_publisher(TwistStamped, '/diff_drive_base_controller/cmd_vel', 10)
 
     # Init Pose
+    print(">>> Waiting for Nav2 to warm up...")
+    time.sleep(5.0)
     initial_pose = create_pose(navigator, INITIAL_X, INITIAL_Y, INITIAL_YAW)
     navigator.setInitialPose(initial_pose)
     navigator.waitUntilNav2Active()
 
-    wp_sphere = create_pose(navigator, 1.5, 0.0, 0.0)
+    # PHASE 1: SCANNING ROTATION
+    print(">>> PHASE 1: Scanning for Target...")
     
-    # PHASE 1: SEARCH
-    print(">>> PHASE 1: Moving to Search Area...")
-    navigator.goToPose(wp_sphere)
-
-    while not navigator.isTaskComplete():
-        rclpy.spin_once(listener, timeout_sec=0.1)
-        if listener.target_detected:
-            print(f"\n!!! TARGET SPOTTED !!!")
-            navigator.cancelTask()
-            break
+    scan_speed = SEARCH_SPEED
+    # Sequence: (duration, speed)
+    # 60 deg = 1.05 rad. Time = 1.05 / 0.4 = 2.625s
+    # 120 deg = 2.1 rad. Time = 2.1 / 0.4 = 5.25s
+    
+    scan_sequence = [
+        (2.7, scan_speed),   # Left 60
+        (5.4, -scan_speed),  # Right 120 (to -60)
+        (2.7, scan_speed)    # Left 60 (back to center)
+    ]
+    
+    target_found = False
+    
+    for duration, speed in scan_sequence:
+        if target_found: break
+        
+        start_time = listener.get_clock().now().nanoseconds
+        duration_ns = duration * 1e9
+        
+        while (listener.get_clock().now().nanoseconds - start_time) < duration_ns:
+            rclpy.spin_once(listener, timeout_sec=0.05)
+            if listener.target_detected:
+                print(f"\n!!! TARGET SPOTTED !!!")
+                target_found = True
+                break
+            
+            twist = TwistStamped()
+            twist.header.frame_id = 'base_link'
+            twist.twist.angular.z = float(speed)
+            vel_pub.publish(twist)
+            time.sleep(0.05)
+            
+    # Stop
+    stop_msg = TwistStamped()
+    stop_msg.header.frame_id = 'base_link'
+    vel_pub.publish(stop_msg)
 
     # PHASE 1.5: SMART CHASE
     print(f">>> CHASING TARGET (Smart Recovery Mode)...")
@@ -243,7 +272,27 @@ def main():
     time.sleep(1.0)
 
     # PHASE 3: RETURN HOME (First time)
-    wp_pen = create_pose(navigator, 0.08, 2.0, 1.57)
+    print(">>> CLEARING COSTMAPS BEFORE NAVIGATION...")
+    from nav2_msgs.srv import ClearEntireCostmap
+    
+    # Create clients
+    global_clear_client = listener.create_client(ClearEntireCostmap, '/global_costmap/clear_entirely_global_costmap')
+    local_clear_client = listener.create_client(ClearEntireCostmap, '/local_costmap/clear_entirely_local_costmap')
+    
+    # Call services (non-blocking attempt)
+    if global_clear_client.wait_for_service(timeout_sec=1.0):
+        req = ClearEntireCostmap.Request()
+        global_clear_client.call_async(req)
+        print(">>> Global Costmap Cleared.")
+        
+    if local_clear_client.wait_for_service(timeout_sec=1.0):
+        req = ClearEntireCostmap.Request()
+        local_clear_client.call_async(req)
+        print(">>> Local Costmap Cleared.")
+        
+    time.sleep(1.0) # Wait for map to reset
+    
+    wp_pen = create_pose(navigator, 0.00, 2.0, 1.57)
     
     print(f">>> NAVIGATING TO HOME (Goal: {wp_pen.pose.position.x}, {wp_pen.pose.position.y})...")
     navigator.goToPose(wp_pen)
@@ -296,6 +345,19 @@ def main():
         
         if cmd == 'go':
             print("\n>>> NAVIGATING TO HOME FROM CURRENT POSITION...")
+            
+            # Clear Costmaps
+            print(">>> CLEARING COSTMAPS...")
+            if global_clear_client.wait_for_service(timeout_sec=1.0):
+                req = ClearEntireCostmap.Request()
+                global_clear_client.call_async(req)
+                
+            if local_clear_client.wait_for_service(timeout_sec=1.0):
+                req = ClearEntireCostmap.Request()
+                local_clear_client.call_async(req)
+            
+            time.sleep(1.0)
+            
             navigator.goToPose(wp_pen)
             
             while not navigator.isTaskComplete():

@@ -43,7 +43,7 @@ def main():
     print(">>> Nav2 is active!")
     
     # Define the pen goal coordinates
-    pen_x = 0.1
+    pen_x = 0.03
     pen_y = 2.5
     pen_yaw = 1.57  # radians (approximately 90 degrees)
     
