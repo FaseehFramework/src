@@ -14,16 +14,7 @@ def generate_launch_description():
     map_file = os.path.join(get_package_share_directory(pkg_nav), 'maps', 'assessment_map.yaml')
     params_file = os.path.join(get_package_share_directory(pkg_nav), 'config', 'nav2_params.yaml')
 
-    # [UPDATED] Fake Localization (Static TF)
-    # We apply the -3.69 offset here. 
-    # Logic: map_frame = odom_frame + (-3.69 offset)
-    # Args: x y z yaw pitch roll parent_frame child_frame
-    fake_localization = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        arguments=['-3.69', '0', '0', '0', '0', '0', 'map', 'odom'],
-        output='screen'
-    )
+
 
     # --- Launch Nav2 Bringup ---
     nav2_bringup = IncludeLaunchDescription(
@@ -48,7 +39,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        fake_localization,
         nav2_bringup,
         rviz
     ])

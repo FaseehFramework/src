@@ -243,7 +243,7 @@ def main():
     time.sleep(1.0)
 
     # PHASE 3: RETURN HOME (First time)
-    wp_pen = create_pose(navigator, 0.1, 3.5, 1.57)
+    wp_pen = create_pose(navigator, 0.08, 2.0, 1.57)
     
     print(f">>> NAVIGATING TO HOME (Goal: {wp_pen.pose.position.x}, {wp_pen.pose.position.y})...")
     navigator.goToPose(wp_pen)
