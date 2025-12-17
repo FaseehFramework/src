@@ -33,6 +33,17 @@ SphereBOT is an autonomous mobile robot designed to navigate an assessment envir
 
 **Dependencies**: `ros2_control`, `ros2_controllers`, `gz_ros2_control`
 
+#### Launch Files
+
+**`display.launch.py`**
+```bash
+ros2 launch spherebot_description display.launch.py
+```
+- Launches RViz with the SphereBOT robot model
+- Useful for visualizing and debugging robot URDF
+- Shows robot structure, joints, and sensor positions
+- Does not require Gazebo simulation
+
 ---
 
 ### `spherebot_control`
@@ -57,6 +68,17 @@ SphereBOT is an autonomous mobile robot designed to navigate an assessment envir
 - **Input**: `/diff_drive_base_controller/odom`
 - **Output**: `/diff_drive_base_controller/odom_fixed`
 - **Purpose**: Ensures proper frame naming (`odom` → `base_footprint`) required by Nav2
+
+#### Launch Files
+
+**`sim.launch.py`**
+```bash
+ros2 launch spherebot_control sim.launch.py
+```
+- Launches SphereBOT in Gazebo simulation environment
+- Alternative launcher to `spherebot_gazebo` package
+- Initializes controllers and robot state publisher
+- Useful for testing control configurations
 
 ---
 
@@ -150,9 +172,24 @@ SphereBOT is an autonomous mobile robot designed to navigate an assessment envir
 - **Functionality**: Sends single Nav2 goal to pen location
 
 #### Launch Files
-- **`navigation.launch.py`**: Launches full Nav2 stack with RViz
-- **`go_to_pen.launch.py`**: Quick launcher for pen navigation
-- **`complete_mission.launch.py`**: Integrated mission launcher
+
+**`navigation.launch.py`**
+```bash
+ros2 launch spherebot_navigation navigation.launch.py
+```
+- Launches complete Nav2 navigation stack
+- Loads pre-generated map (`assessment_map.yaml`)
+- Starts AMCL localization, planners, and controllers
+- Opens RViz with Nav2 visualization
+- **Primary navigation launcher** - used in main mission workflow
+
+**`go_to_pen.launch.py`**
+```bash
+ros2 launch spherebot_navigation go_to_pen.launch.py
+```
+- Quick launcher for automated pen navigation
+- Automatically sends Nav2 goal to pen location
+- Useful for testing return-to-home functionality
 
 ---
 
@@ -166,6 +203,26 @@ SphereBOT is an autonomous mobile robot designed to navigate an assessment envir
 - **Localization**: Map-based localization for autonomous navigation
 
 **Usage**: Used during initial setup to generate the `assessment_map` used by Nav2
+
+#### Launch Files
+
+**`slam.launch.py`**
+```bash
+ros2 launch spherebot_slam slam.launch.py
+```
+- Launches SLAM Toolbox with RViz visualization
+- Robot builds map in real-time as it explores environment
+- Uses Lidar data to create occupancy grid map
+- Requires robot to be running in Gazebo (use `spherebot_sim.launch.py` first)
+
+**Save Generated Map**
+```bash
+ros2 run nav2_map_server map_saver_cli -f ~/ros2/ros2_ws/src/spherebot_slam/maps/assessment_map
+```
+- Saves the current SLAM-generated map to disk
+- Creates two files: `assessment_map.yaml` and `assessment_map.pgm`
+- Run this command after exploring the entire environment
+- Saved map can then be used by Nav2 for autonomous navigation
 
 ---
 
@@ -199,6 +256,16 @@ SphereBOT is an autonomous mobile robot designed to navigate an assessment envir
 2. **Collecting Other Spheres**: Green and red spheres (no vision system)
 3. **Recovery Maneuvers**: When robot gets stuck in Nav2 costmap boundaries
 4. **Gate Control**: Opening/closing capture mechanism
+
+#### Run Command
+
+```bash
+ros2 run spherebot_teleop keyboard
+```
+- Starts keyboard teleoperation node
+- Takes over terminal input for control
+- Press CTRL-C to exit and return terminal control
+- Can run alongside autonomous nodes for manual intervention
 
 ---
 

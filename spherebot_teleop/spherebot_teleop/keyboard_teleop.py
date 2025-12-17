@@ -114,7 +114,6 @@ class KeyboardTeleop(Node):
                 elif key == '\x03': # CTRL-C
                     break
                 else:
-                    # Optional: Stop on key release behavior if desired
                     pass
 
         except Exception as e:

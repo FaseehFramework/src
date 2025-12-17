@@ -97,7 +97,7 @@ class SafetyStop(Node):
         # Convert to TwistStamped
         stamped_msg = TwistStamped()
         stamped_msg.header.stamp = self.get_clock().now().to_msg()
-        stamped_msg.header.frame_id = 'base_link' # or whatever frame is appropriate
+        stamped_msg.header.frame_id = 'base_link' 
         stamped_msg.twist = msg
         
         self.cmd_vel_pub.publish(stamped_msg)

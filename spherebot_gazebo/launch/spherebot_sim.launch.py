@@ -23,8 +23,7 @@ def generate_launch_description():
     # Path to the controller config
     controller_config = os.path.join(get_package_share_directory(control_pkg), 'config', 'controllers.yaml')
 
-    # --- NEW: Path to the World File ---
-    # This matches the folder structure we defined in setup.py ('worlds/')
+
     world_path = os.path.join(get_package_share_directory(gazebo_pkg), 'worlds', 'assessment_world.sdf')
 
     declare_rviz_cmd = DeclareLaunchArgument(
@@ -50,7 +49,6 @@ def generate_launch_description():
     )
 
     # 2. Gazebo Simulation
-    # We pass the full path to the world file in gz_args
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [os.path.join(get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py')]
@@ -117,8 +115,7 @@ def generate_launch_description():
        parameters=[ekf_config_path, {'use_sim_time': True}]
     )
 
-    # Safety Stop Node
-    # Intercepts /cmd_vel (from teleop) and publishes to /diff_drive_base_controller/cmd_vel_unstamped
+
     safety_stop_node = Node(
         package='spherebot_control',
         executable='safety_stop',
@@ -127,8 +124,7 @@ def generate_launch_description():
         parameters=[{'use_sim_time': True}]
     )
 
-    # Odom Fixer Node
-    # Adds frame_ids to /diff_drive_base_controller/odom and publishes to .../odom_fixed
+
     odom_fixer_node = Node(
         package='spherebot_control',
         executable='odom_fixer',
@@ -149,9 +145,7 @@ def generate_launch_description():
 
 # --- INTEGRATION: Sphere Spawner ---
     
-    # 1. Bridge specifically for the spawn service
-    # This runs alongside your existing bridge without conflict.
-    # It bridges the service that allows us to create objects in the 'assessment_world'.
+
     spawn_service_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -169,7 +163,6 @@ def generate_launch_description():
     )
 
     # 3. Delay to ensure Gazebo is fully loaded before spawning
-    # We wait 5 seconds (just like the tutor's launch file) to ensure the world exists.
     delayed_spawn_spheres = TimerAction(
         period=5.0,
         actions=[spawn_spheres_node]

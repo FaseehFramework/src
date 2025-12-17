@@ -54,8 +54,6 @@
   <material name="silver"><color rgba="0.7 0.7 0.7 1"/></material>
   <material name="gray"><color rgba="0.5 0.5 0.5 1"/></material>
 
-  <!-- [NEW] ARGUMENT FOR CONTROLLER CONFIG -->
-  <!-- This allows the launch file to pass in the path to the yaml file -->
   <xacro:arg name="config_file" default="$(find spherebot_control)/config/controllers.yaml" />
 
 
@@ -128,7 +126,6 @@
 <xacro:macro name="revolute_gate" params="prefix y_sign axis_sign">
   <link name="${prefix}_gate">
     <visual>
-      <!-- Gate extends forward from hinge -->
       <origin xyz="${gate_len/2} 0 0"/>
       <geometry>
         <box size="${gate_len} ${gate_thick} ${gate_height}"/>
@@ -298,12 +295,10 @@
 
   <gazebo>
     <!-- [UPDATED] ROS 2 Control Bridge -->
-    <!-- It now uses the 'config_file' argument passed from the launch file -->
     <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <parameters>$(arg config_file)</parameters>
     </plugin>
 
-    <!-- Sensors remain unchanged -->
     <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
     </plugin>
 
@@ -318,7 +313,6 @@
 
   <link name="lidar_stand_link">
   <visual>
-    <!-- Center of cylinder is half its height -->
     <origin xyz="0 0 ${lidar_stand_height/2}" rpy="0 0 0"/>
     <geometry>
       <cylinder length="${lidar_stand_height}" radius="${lidar_stand_radius}"/>

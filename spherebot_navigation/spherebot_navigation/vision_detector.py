@@ -69,10 +69,6 @@ class VisionDetector(Node):
             msg.y = float(proximity)
             msg.z = 1.0 # Detection Flag: True
             
-            # Optional: Draw box for debug
-            # cv2.rectangle(current_frame, (x, y), (x+w_box, y+h_box), (0, 255, 0), 2)
-            # cv2.imshow("Debug", current_frame)
-            # cv2.waitKey(1)
         else:
             msg.z = 0.0 # Detection Flag: False
 

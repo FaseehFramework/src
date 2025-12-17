@@ -24,7 +24,7 @@ MAX_ANGULAR_VEL = 1.0
 
 # TIMING SETTINGS
 RECOVERY_DURATION = 1.5     # Time to clear obstacle after losing ball
-BACKUP_DURATION = 2.0       # [NEW] Time to reverse when stuck
+BACKUP_DURATION = 2.0       # Time to reverse when stuck
 
 class MissionListener(Node):
     def __init__(self):
@@ -42,7 +42,7 @@ class MissionListener(Node):
         self.last_avoidance_direction = 0.0
         self.is_avoiding = False
         self.recovery_start_time = 0.0 
-        self.backup_start_time = 0.0  # [NEW] Timer for backing up
+        self.backup_start_time = 0.0  # Timer for backing up
         
         self.create_subscription(Point, '/vision/tracking_data', self.vision_cb, 10)
         self.create_subscription(JointState, '/joint_states', self.joint_cb, qos_profile_sensor_data)
