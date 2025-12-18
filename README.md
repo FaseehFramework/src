@@ -581,40 +581,6 @@ CTRL-C to quit
 
 ---
 
-### ROS2 Beginner Tips
-
-If you're new to ROS2, here are some helpful commands:
-
-**List all active topics**:
-```bash
-ros2 topic list
-```
-
-**View messages on a topic**:
-```bash
-ros2 topic echo /camera/image_raw
-ros2 topic echo /scan
-```
-
-**Check node connectivity**:
-```bash
-ros2 node list
-ros2 node info /mission_listener
-```
-
-**View robot transform tree**:
-```bash
-ros2 run tf2_tools view_frames
-```
-
-**Kill all ROS nodes** (if you need to restart):
-```bash
-pkill -9 -f ros2
-pkill -9 -f gz
-```
-
----
-
 ## Project Architecture Diagram
 
 ```
