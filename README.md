@@ -718,9 +718,16 @@ pkill -9 -f gz
 
 ---
 
-## License
+## References
 
-TODO: License Declaration
+- https://docs.ros.org/en/jazzy/Tutorials/Intermediate/URDF/Building-a-Movable-Robot-Model-with-URDF.html
+- https://docs.ros.org/en/jazzy/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.html
+- https://control.ros.org/jazzy/doc/ros2_control_demos/example_2/doc/userdoc.html
+- https://docs.ros.org/en/ros2_packages/jazzy/api/nav2_simple_commander/
+- https://docs.ros.org/en/ros2_packages/jazzy/api/slam_toolbox/
+- https://automaticaddison.com/autonomous-navigation-for-a-mobile-robot-using-ros-2-jazzy/
+- https://www.youtube.com/watch?v=wZV1PoZ4fyk
+- https://www.youtube.com/watch?v=V9ztoMuSX8w
 
 ---
 
