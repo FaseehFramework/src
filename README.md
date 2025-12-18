@@ -4,6 +4,16 @@
 
 SphereBOT is an autonomous mobile robot designed to navigate an assessment environment, detect and collect three colored spheres of different sizes, and transport them to a designated pen area. The robot combines autonomous navigation using ROS2 Nav2 stack with computer vision-based object detection and manual teleoperation for precision tasks.
 
+## Video [link](https://youtu.be/Z_MHkmz-nNo)
+
+## Images
+![SphereBot in assessment world](https://github.com/FaseehFramework/src/blob/master/images/spherebot%20in%20assessment%20world.png?raw=true)
+![SphereBot costmap](https://github.com/FaseehFramework/src/blob/master/images/costmap.png?raw=true)
+![Nav2 goal to Pen Goal](https://github.com/FaseehFramework/src/blob/master/images/pen%20goal.png?raw=true)
+![Final goal](https://github.com/FaseehFramework/src/blob/master/images/final%20goal.png?raw=true)
+
+
+
 **Mission Objective**: Locate and collect three spheres (blue, green, and red) of varying sizes and return them to a pen enclosure within the assessment world.
 
 **Robot Platform**: Custom differential drive robot with:
